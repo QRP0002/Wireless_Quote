@@ -21,21 +21,30 @@ Product Cost
 }
 
 class Customer {
-Contact Information
+
 }
 
 class Equipment {
-Cable
-Servers
-Routers
-Wireless Access Points
+
 }
 
 class Information
 class Quote
 class InstallationCompany
+
 class Employee {
-Contact Information
+
+}
+
+class Cable
+class Modem
+class Routers
+class WirelessAccessPoints
+
+class ContactInformation {
+    Name
+    Phone Number
+    Email Address
 }
 
 Customer "1" -- "1" InstallationCompany : Hires
@@ -52,5 +61,13 @@ Quote "1" -- "1" Customer : Gets
 Cost "1" -- "1" Information : Calculates
 Cost "1" -- "+" Equipment : Calculates
 Customer "1" -- "+" Information : Provides
+Equipment <|-- Cable
+Equipment <|-- Modem
+Equipment <|-- Routers
+Equipment <|-- WirelessAccessPoints
+
+Customer "1" -- "1" ContactInformation : Has
+Employee "1" -- "1" ContactInformation : Has
+
 
 @enduml

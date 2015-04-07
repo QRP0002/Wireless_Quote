@@ -1,10 +1,7 @@
 package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +15,6 @@ import android.widget.Toast;
  */
 public class LoginFragment extends Fragment {
     private Button mLoginButton;
-    private Boolean mFlag = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -30,8 +26,8 @@ public class LoginFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_login, container, false);
-        mLoginButton = (Button)v.findViewById(R.id.login_button);
+       final View view = inflater.inflate(R.layout.fragment_login, container, false);
+        mLoginButton = (Button)view.findViewById(R.id.login_button);
         mLoginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -39,7 +35,7 @@ public class LoginFragment extends Fragment {
                 EditText editText = (EditText) v.findViewById(R.id.username_login);
                 EditText editText1 = (EditText) v.findViewById(R.id.password_login);
                 String username = editText.getText().toString();
-                String password = editText1.getText().toString().toLowerCase();
+                String password = editText1.getText().toString();
 
                 LoginInformation li = new LoginInformation(username, password);
                 li.addUser(); //Fills the HashMap with the preset list.
@@ -62,7 +58,7 @@ public class LoginFragment extends Fragment {
                 }
             }
         });
-        return v;
+        return view;
     }
 
     @Override
