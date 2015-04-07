@@ -1,0 +1,10 @@
+@startuml
+[*] --> ActivityBar
+
+ActivityBar --> HomePage : Select Home Page
+HomePage: do/ display home page
+
+ActivityBar --> LoggingOff : Selects Logoff
+LoggingOff: do/ go to system home page
+
+@enduml

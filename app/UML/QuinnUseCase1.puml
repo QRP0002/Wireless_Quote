@@ -1,0 +1,11 @@
+@startuml
+Employee -> Server: login(username, password)
+Activate Employee
+Activate Server
+Server -> Server : Verify Information
+Server -> Server : Get Employee Information
+Server -> Server : Login Valid
+Server --> Employee : Show Employee Screen
+Deactivate Server
+
+@enduml

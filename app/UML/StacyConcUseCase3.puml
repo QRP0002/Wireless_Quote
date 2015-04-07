@@ -1,0 +1,34 @@
+@startuml
+User -> SystemHomePage : Log In
+activate User
+activate SystemHomePage
+activate UserHomePage
+SystemHomePage -> UserHomePage  : onCreate()
+UserHomePage -> UserHomePageController: onCreate
+activate UserHomePageController
+UserHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+UserHomePageController -> ManageQuotePage : Display Field
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+User -> ManageQuotePageController : Click Manage Quote
+ManageQuotePageController -> EditQuoteOrViewQuotePage : onClickCreate()
+activate EditQuoteOrViewQuotePage
+User -> EditQuoteOrViewQuotePage: Click Edit Quote or View Quote
+EditQuoteOrViewQuotePage -> EditQuoteOrViewQuotePageController  : onCreate()
+activate EditQuoteOrViewQuotePageController
+EditQuoteOrViewQuotePageController --> EditQuoteOrViewQuotePage : Display Fields
+User -> EditQuoteOrViewQuotePage : Submit
+EditQuoteOrViewQuotePage -> EmailUserQuotePage : onCreate()
+activate EmailUserQuotePage
+EmailUserQuotePage -> EmailUserQuotePageController : onCreate()
+activate EmailUserQuotePageController
+EmailUserQuotePageController --> EmailUserQuotePage : Display Fields
+User -> EmailUserQuotePage : Fill Out Fields
+User -> EmailUserQuotePage : Submit
+EmailUserQuotePage --> EmailUserQuotePageController : Return Information
+EmailUserQuotePageController -> Server : Reject
+activate Server
+EmailUserQuotePageController  --> EmailUserQuotePage : displayError(True)
+EmailUserQuotePage --> User : Email not sent
+@enduml

@@ -1,0 +1,9 @@
+@startuml
+User -> System : Log In
+activate User
+activate System
+
+System --> User : Display Home
+User -> System : Create New Quote
+System --> User : Display New Quote Page
+@enduml

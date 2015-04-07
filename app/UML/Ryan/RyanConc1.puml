@@ -1,0 +1,16 @@
+@startuml
+Employee -> SystemHomePage : Log In
+activate Employee
+activate SystemHomePage
+activate EmployeeHomePage
+SystemHomePage -> EmployeeHomePage  : onCreate()
+EmployeeHomePage -> EmployeeHomePageController: onCreate
+activate EmployeeHomePageController
+Employee -> EmployeeHomePage : Create New Quote
+EmployeeHomePage -> EmployeeHomePageController : createNewQuote()
+EmployeeHomePageController -> CreateQuotePage : On Create
+activate CreateQuotePage
+CreateQuotePage -> CreateQuotePageController : onCreate()
+activate CreateQuotePageController
+CreateQuotePage --> Employee : Empty Fields
+@enduml

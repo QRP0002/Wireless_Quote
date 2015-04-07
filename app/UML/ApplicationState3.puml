@@ -1,0 +1,13 @@
+@startuml
+[*] --> EmployeeHomePage
+EmployeeHomePage : do/ display employee home page
+
+ManageEmployeeQuote -> EmployeeHomePage : Selects back
+EmployeeHomePage -> ManageEmployeeQuote : Selects Manage Quote
+ManageEmployeeQuote : do/ display employee quote
+
+EmployeeHomePage -> CreateQuote : Select Create Quote
+CreateQuote : do/ display new quote
+
+CreateQuote -> EmployeeHomePage : User selects back
+@enduml

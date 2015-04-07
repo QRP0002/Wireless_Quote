@@ -1,0 +1,9 @@
+@startuml
+Customer -> Server : login(username, password)
+activate Server
+Server -> Server : verify
+Server -> Server : Get Customer Information
+Server -> Server : Login Valid
+Server --> Customer : Display Customer screen
+deactivate Server
+@enduml

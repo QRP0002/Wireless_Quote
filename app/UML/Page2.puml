@@ -1,0 +1,29 @@
+@startuml
+
+class ActivityBar {
+    logout()
+    homepage()
+}
+class EditCustomerQuotePage {
+    editTextFields()
+    submitChanges()
+}
+class EmailCustomerQuotePage {
+    send()
+}
+class SystemHomePage {
+    login()
+}
+Page -- ActivityBar
+Page <|-- SystemHomePage
+
+SystemHomePage -- CustomerHomePage
+CustomerHomePage -- ManageCustomerQuotePage
+ViewCustomerQuotePage -- ManageCustomerQuotePage
+EditCustomerQuotePage -- EmailCustomerQuotePage
+EmailCustomerQuotePage -- ViewCustomerQuotePage
+ManageCustomerQuotePage -- EditCustomerQuotePage
+
+
+
+@enduml

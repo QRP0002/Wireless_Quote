@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Wireless Quote</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--Login String List-->
+    <string name="username_login"></string>
+    <string name="password_login"></string>
+    <string name="login_button">Log In</string>
+    <string name="incorrect_info">Information Incorrect, try again</string>
+
+    <!--Manage Quote-->
+    <string name="manage_quote_employee_button">Manage Quote</string>
+
+    <!--Create Quote-->
+    <string name="create_quote_button">Create New Quote</string>
+</resources>

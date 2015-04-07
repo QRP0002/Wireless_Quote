@@ -1,0 +1,38 @@
+@startuml
+Actor Customer
+Actor Server
+Actor Employee
+
+Employee -- (Delete Quote)
+(Delete Quote) -- Server
+Employee -- (Remove Customer)
+(Remove Customer) -- Server
+Employee -- (Create New Quote)
+(Create New Quote) ..> (Fill Out Quote) : Include
+Employee -- (Fill Out Quote)
+(Fill Out Quote) <.. (Gather Quote) : Include
+(Gather Quote) <.. (Calculate Cost) : Extend
+(Gather Quote) -- Server
+Employee -- (Employee Log In)
+(Employee Log In) -- Server
+Customer -- (Customer Log In)
+(Customer Log In) -- Server
+Employee -- (Manage Quote)
+Customer -- (Manage Quote)
+(Manage Quote) -- Server
+(Manage Quote) ..> (Edit Quote) : Include
+(Manage Quote) ..> (View Quote) : Include
+Employee -- (Log Off)
+Customer -- (Log Off)
+(Edit Quote) ..> (Submit Change) : Include
+(Submit Change) ..> (Send Notification) : Extend
+Employee -- (Send Notification)
+Customer -- (Send Notification)
+(Submit Change) ..> (Gather Quote) : Extend
+(View Quote) ..> (Send Email) : Include
+(Edit Quote) ..> (Send Email) : Include
+Customer -- (Send Email)
+Employee -- (Send Email)
+Server -- (Send Email)
+
+@enduml

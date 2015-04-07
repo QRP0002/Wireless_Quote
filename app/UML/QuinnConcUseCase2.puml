@@ -1,0 +1,23 @@
+@startuml
+Employee -> SystemHomePage : login()
+activate Employee
+activate SystemHomePage
+SystemHomePage -> SystemHomePageController : onCreate()
+activate SystemHomePageController
+SystemHomePageController -> LoginTextBox : onCreate
+activate LoginTextBox
+SystemHomePageController -> LoginTextBox : Display fields
+Employee -> LoginTextBox : Enter username and password
+Employee -> LoginTextBox : Submit Information
+LoginTextBox --> SystemHomePageController : submitInfo()
+deactivate LoginTextBox
+SystemHomePageController -> ServerList : verifyUser()
+activate ServerList
+ServerList --> SystemHomePageController : login(False)
+deactivate ServerList
+SystemHomePageController --> SystemHomePage : createFailure(True)
+SystemHomePage --> Employee : Display Invalid Information
+
+
+
+@enduml

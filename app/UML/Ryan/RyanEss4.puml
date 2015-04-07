@@ -1,0 +1,9 @@
+@startuml
+User -> System : Log In
+activate User
+activate System
+System --> User : Show Home Screen
+User -> System : Manage Quote
+System --> User : Error: No Quotes Available
+System --> User : Display Home Screen
+@enduml

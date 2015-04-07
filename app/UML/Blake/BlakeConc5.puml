@@ -1,0 +1,34 @@
+@startuml
+User -> SystemHomePage : Log In
+activate User
+activate SystemHomePage
+activate UserHomePage
+SystemHomePage -> UserHomePage  : onCreate()
+UserHomePage -> UserHomePageController: onCreate
+activate UserHomePageController
+User -> UserHomePage : Click Manage Quote
+UserHomePage -> UserHomePageController : Send Information
+UserHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+UserHomePageController -> ManageQuotePage : Display Field
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+ManageQuotePageController -> EditQuoteOrViewQuotePage : onClickCreate()
+activate EditQuoteOrViewQuotePage
+User -> ManageQuotePage: Click Edit Quote or View Quote
+ManageQuotePage -> ManageQuotePageController : Send Information
+ManageQuotePageController -> EditQuoteOrViewQuotePage : onCreate()
+EditQuoteOrViewQuotePage -> EditQuoteOrViewQuotePageController  : onCreate()
+activate EditQuoteOrViewQuotePageController
+EditQuoteOrViewQuotePageController --> EditQuoteOrViewQuotePage : Display Fields
+User -> EditQuoteOrViewQuotePage : Make Changes (Optional)
+User -> EditQuoteOrViewQuotePage : Submit
+EditQuoteOrViewQuotePage -> EditQuoteOrViewQuotePageController : Send Information
+EditQuoteOrViewQuotePageController -> EditQuoteOrViewQuotePageController : Validate
+EditQuoteOrViewQuotePageController -> Server : validate(True)
+activate Server
+Server --> EditQuoteOrViewQuotePageController : validateDone(True)
+EditQuoteOrViewQuotePageController --> EditQuoteOrViewQuotePage : sendNotification()
+EditQuoteOrViewQuotePage --> User : Notification Sent
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+User -> System : Log In
+activate System
+activate User
+System --> User : Display Home Screen
+User -> System : Performs Action That Sends Notification
+System -> Server : Determine Action
+activate Server
+Server --> System : Notification Not Found
+deactivate Server
+System --> User : Receives No Notification
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+[*] --> CustomerHomePage
+CustomerHomePage : do/ display customer home page
+
+CustomerHomePage -> ManageCustomerQuote : Selects Manage Quote
+ManageCustomerQuote : do/ display customer quote
+
+ManageCustomerQuote -> CustomerHomePage : Selects back
+
+@enduml

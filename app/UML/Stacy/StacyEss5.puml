@@ -1,0 +1,18 @@
+@startuml
+User -> System : Log In
+activate User
+activate System
+System --> User : Show Home Screen
+User -> System : Manage Quote
+System --> User : Quotes Available
+User -> System : Select Quote
+System -> Server : Request Quote
+activate Server
+Server --> System : Return Quote
+deactivate Server
+System --> User : Display Quote
+User -> System : Delete Quote
+System --> User : Validate
+User -> System : Do Not Validate
+System --> User : Display Quote
+@enduml

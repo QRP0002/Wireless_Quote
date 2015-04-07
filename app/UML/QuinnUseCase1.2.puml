@@ -1,0 +1,8 @@
+@startuml
+Employee -> Server : login(username, password)
+Activate Server
+Server -> Server : Verify Information
+Server -> Server : Information False
+Server --> Employee : Display Information Incorrect
+Deactivate Server
+@enduml

@@ -1,0 +1,17 @@
+@startuml
+User -> ActivityBarPage : Call Log Off
+activate User
+activate ActivityBarPage
+ActivityBarPage -> ActivityBarPageController : onCreate()
+activate ActivityBarPageController
+ActivityBarPageController -> LogOff : onCreate
+activate LogOff
+ActivityBarPageController -> LogOff : Display Fields
+LogOff -> LogOff : Display Options
+User -> LogOff : No
+LogOff --> ActivityBarPageController : logOff(False)
+deactivate LogOff
+ActivityBarPageController -> ReturnPreviousSystemPage : reCreate()
+activate ReturnPreviousSystemPage
+deactivate ActivityBarPageController
+@enduml

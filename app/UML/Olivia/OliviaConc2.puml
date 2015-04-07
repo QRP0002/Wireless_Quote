@@ -1,0 +1,27 @@
+@startuml
+Customer -> SystemHomePage : Log In
+activate Customer
+activate SystemHomePage
+activate CustomerHomePage
+SystemHomePage -> CustomerHomePage  : onCreate()
+CustomerHomePage -> CustomerHomePageController: onCreate
+activate CustomerHomePageController
+Customer -> CustomerHomePage : Click Manage Quote
+CustomerHomePage -> CustomerHomePageController : Send Information
+CustomerHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+CustomerHomePageController -> ManageQuotePage : Display Field
+Customer -> ManageQuotePage : Click Edit Quote
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+ManageQuotePageController -> EditQuotePage : onClickCreate()
+activate EditQuotePage
+EditQuotePage -> EditQuotePageController  : onCreate()
+activate EditQuotePageController
+EditQuotePageController --> EditQuotePage : Display Fields
+Customer -> EditQuotePage : Change Fields
+Customer -> EditQuotePage : Submit
+EditQuotePage -> EditQuotePageController : Return Customer Changes
+EditQuotePageController -> Server : Save Changes
+activate Server
+@enduml

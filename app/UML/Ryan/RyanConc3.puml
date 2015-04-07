@@ -1,0 +1,31 @@
+@startuml
+User -> SystemHomePage : Log In
+activate User
+activate SystemHomePage
+activate UserHomePage
+SystemHomePage -> UserHomePage  : onCreate()
+UserHomePage -> UserHomePageController: onCreate
+activate UserHomePageController
+User -> UserHomePage : Click Manage Quote
+UserHomePage -> UserHomePageController : Send Information
+UserHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+UserHomePageController -> ManageQuotePage : Display Field
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+User -> ManageQuotePage : Select Quote
+User -> ManageQuotePage : Edit Quote
+ManageQuotePage -> ManageQuotePageController : Send Information
+ManageQuotePageController -> EditQuotePage : onCreate()
+activate EditQuotePage
+EditQuotePage -> EditQuotePageController : onCreate()
+activate EditQuotePageController
+EditQuotePage -> EditQuotePageController : Send Information
+EditQuotePageController -> EditQuotePageController : verify()
+EditQuotePageController -> Server : verifyQuote(True)
+activate Server
+Server --> EditQuotePageController : pullQuote(True)
+EditQuotePageController --> EditQuotePage : Quote
+EditQuotePageController --> EditQuotePage : Create Edit Fields
+User -> EditQuotePage : Make Changes to Quote
+@enduml

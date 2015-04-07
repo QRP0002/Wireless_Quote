@@ -1,0 +1,20 @@
+@startuml
+User -> System : Log In
+activate User
+activate System
+System --> User : Show Home Screen
+User -> System : Manage Quote
+System --> User : Quotes Available
+User -> System : Select Quote
+System -> Server : Request Quote
+activate Server
+Server --> System : Return Quote
+System --> User : Display Quote
+User -> System : Email Quote
+System --> User : Email Screen
+User -> System : Fill Out Information
+User -> System : Send Email
+System -> Server : Validate Email
+Server --> System : Email Sent
+System --> User : Email Sent Message
+@enduml

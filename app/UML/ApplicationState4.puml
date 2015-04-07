@@ -1,0 +1,14 @@
+@startuml
+[*] --> CustomerManageQuote
+CustomerManageQuote : do/ display view and edit quote
+
+CustomerManageQuote --> CustomerEdit : select Edit Quote
+CustomerEdit : do/ display text fields
+CustomerEdit: do/ display information
+
+CustomerManageQuote --> CustomerView :  Select View Quote
+CustomerView : do/ display information
+
+CustomerView --> CustomerManageQuote : Select Back
+CustomerEdit --> CustomerManageQuote : Select Back
+@enduml

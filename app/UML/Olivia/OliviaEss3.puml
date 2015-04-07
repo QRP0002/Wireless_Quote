@@ -1,0 +1,12 @@
+@startuml
+User -> System : Log In
+activate System
+activate User
+System --> User : Display Home Page
+User -> System : Create Quote
+System --> User : Display New Quote
+User -> System : Fills Out Some Information
+System -> System : Check Information
+System --> User : Error: Not All Information
+
+@enduml

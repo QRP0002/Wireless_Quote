@@ -1,0 +1,24 @@
+@startuml
+[*] -> SystemHomePage
+SystemHomePage : do/display homepage
+
+SystemHomePage -> GettingLoginInformation : User Selects Login
+GettingLoginInformation : do/read text boxes
+
+GettingLoginInformation -> ValidatingUser
+ValidatingUser : do/validation
+
+ValidatingUser -> Error : Failure
+Error : do/display error
+
+Error -> SystemHomePage : Refresh
+
+ValidatingUser -> LoggingOn : Success
+LoggingOn : do/determine user type
+
+LoggingOn -> EmployeeHomePage : if[type = employee]
+EmployeeHomePage : do/display employee home page
+
+LoggingOn -> CustomerHomePage : if[type = customer]
+CustomerHomePage : do/display customer home page
+@enduml

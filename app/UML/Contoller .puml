@@ -1,0 +1,34 @@
+@startuml
+
+class SystemHomeController {
+    login()
+}
+class Controller
+class ActivityBarController {
+    logout()
+}
+class EditCustomerQuoteController {
+    editTextFields()
+    submitChanges()
+}
+class EmailCustomerQuoteController {
+    send()
+}
+
+
+
+Controller <|-- CustomerController
+SystemHomeController -- Controller
+ActivityBarController --|> Controller
+
+
+
+ViewCustomerQuoteController -- CustomerController
+ManageCustomerQuoteController -- CustomerController
+CustomerHomePageController -- CustomerController
+CustomerController -- EditCustomerQuoteController
+CustomerController -- EmailCustomerQuoteController
+
+
+
+@enduml

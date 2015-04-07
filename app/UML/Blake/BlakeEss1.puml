@@ -1,0 +1,15 @@
+@startuml
+User -> System : Log In
+activate System
+activate User
+System --> User : Display Home Screen
+User -> System : Create New Quote
+System --> User : Display Empty Quote
+User -> System : Fill Out Some Information
+User -> System : Submit New Quote
+System -> Server : Request Quote Save
+activate Server
+Server --> System : Save Quote
+deactivate Server
+System --> User : Quote Created
+@enduml

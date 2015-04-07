@@ -1,0 +1,33 @@
+@startuml
+Employee -> SystemHomePage : Log In
+activate Employee
+activate SystemHomePage
+activate EmployeeHomePage
+SystemHomePage -> EmployeeHomePage  : onCreate()
+EmployeeHomePage -> EmployeeHomePageController: onCreate
+activate EmployeeHomePageController
+Employee -> EmployeeHomePage : Click ManageQuotes
+EmployeeHomePage -> EmployeeHomePageController : sendInformation()
+EmployeeHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+ManageQuotePage --> Employee : Display Field
+Employee -> ManageQuotePage : Select Information
+Employee -> ManageQuotePage : Remove Customer
+ManageQuotePage -> ManageQuotePageController : sendInformation()
+ManageQuotePageController -> RemoveCustomerPage : onCreate
+activate RemoveCustomerPage
+RemoveCustomerPage -> RemoveCustomerPageController : onCreate()
+activate RemoveCustomerPageController
+RemoveCustomerPage --> Employee : Confirm Remove
+Employee -> RemoveCustomerPage : Yes
+RemoveCustomerPage -> RemoveCustomerPageController : remove(True)
+RemoveCustomerPageController -> RemoveCustomerPageController : Validate
+RemoveCustomerPageController -> Server : validateRemove(True)
+activate Server
+Server --> RemoveCustomerPageController : removed(True)
+RemoveCustomerPageController --> RemoveCustomerPage : Removed Customer
+RemoveCustomerPage --> Employee : Display: Customer Removed
+
+@enduml

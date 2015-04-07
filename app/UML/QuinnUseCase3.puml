@@ -1,0 +1,11 @@
+@startuml
+User -> Server : User clicks log off
+activate User
+activate Server
+Server --> User: Ask if sure
+User -> Server : User responds with yes
+Server --> User : Logs user out and shows main screen
+deactivate User
+deactivate Server
+
+@enduml

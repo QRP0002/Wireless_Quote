@@ -1,0 +1,16 @@
+@startuml
+User -> System : Log In
+activate System
+activate User
+System --> User : Display Home Screen
+User -> System : Customer List
+System --> User : Customer Page
+User -> System : Select Remove Customer
+System --> User : Confirm Remove
+User -> System : Confirms Remove
+System -> Server : Request Remove
+activate Server
+Server --> System : Remove Confirmed
+deactivate Server
+System --> User : Customer Removed
+@enduml

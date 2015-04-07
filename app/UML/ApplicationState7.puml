@@ -1,0 +1,23 @@
+@startuml
+[*] --> EmployeeManageQuote
+EmployeeManageQuote : do/ display view and edit quote
+
+EmployeeManageQuote --> EmployeeEdit : select Edit Quote
+EmployeeEdit : do/ display text fields
+EmployeeEdit: do/ display information
+
+EmployeeManageQuote --> EmployeeView :  Select View Quote
+EmployeeView : do/ display information
+
+EmployeeManageQuote --> DeleteQuote : Select Delete Quote
+DeleteQuote: do/ remove quote
+
+DeleteQuote --> EmployeeManageQuote : Select Back
+EmployeeView --> EmployeeManageQuote : Select Back
+EmployeeEdit --> EmployeeManageQuote : Select Back
+
+EmployeeEdit --> EmailQuote : Selects Send Email
+EmailQuote : do/ text fields
+EmployeeView --> EmailQuote : Selects Send Email
+EmailQuote --> [*] : Sent Email
+@enduml

@@ -1,0 +1,13 @@
+@startuml
+[*] --> BlankField
+BlankField --> PartiallyFull : Adding Information
+PartiallyFull --> BlankField : Invalid Information
+PartiallyFull --> PartiallyFull : Add Information
+PartiallyFull --> TextFieldsFull : Complete
+PartiallyFull --> Deleting : Delete Field Text
+Deleting --> PartiallyFull : Delete Information
+Deleting --> BlankField : Deleted Only Text
+TextFieldsFull --> [*]
+PartiallyFull : do/verify character type
+TextFieldsFull : do/verify full
+@enduml

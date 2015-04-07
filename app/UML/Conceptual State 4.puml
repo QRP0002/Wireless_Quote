@@ -1,0 +1,10 @@
+@startuml
+
+[*] --> Empty
+Empty --> GatheringFee : Retrieve Building Information
+GatheringFee --> GatheringEquipmentCost : Retrieve Equipment Information
+GatheringEquipmentCost --> Calculating : Combine Information
+Calculating --> FinishedCost : Combine Calculations
+FinishedCost --> [*]
+
+@enduml

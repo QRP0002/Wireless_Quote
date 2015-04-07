@@ -1,0 +1,10 @@
+@startuml
+[*] --> LoggedOff
+LoggedOff --> LoggingOn : Log On
+LoggingOn --> LoggedOn : Valid
+LoggingOn --> LoggedOff : Invalid
+LoggedOn --> LoggingOff : Log Off
+LoggingOff --> LoggedOff : Valid
+LoggingOn : do/verification
+LoggingOff: do/verification
+@enduml

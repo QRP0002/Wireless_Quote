@@ -1,0 +1,7 @@
+@startuml
+[*] --> EmptyQuote
+EmptyQuote --> GatherInformation : Retrieve Data
+GatherInformation --> FormatQuote : Generate Layout
+FormatQuote --> [*]
+
+@enduml

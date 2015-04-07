@@ -1,0 +1,47 @@
+@startuml
+class ActivityBar {
+    logout()
+    homepage()
+}
+class SystemHomePage {
+    login()
+}
+class EquipmentPage {
+    textFields
+}
+class PropertyInformationPage {
+    textFields
+}
+class BuildingInformationPage {
+    textFields
+}
+class EmailEmployeeQuotePage {
+    send()
+}
+class DeleteQuotePage {
+    deleteQuote()
+}
+class EditEmployeeQuotePage {
+    editTextFields()
+    submitChanges()
+}
+class CreateQuotePage {
+    newQuote()
+}
+Page -- ActivityBar
+Page <|-- SystemHomePage
+
+SystemHomePage -- EmployeeHomePage
+ManageEmployeeQuotePage -- EmployeeHomePage
+EmployeeHomePage -- CreateQuotePage
+
+CreateQuotePage <|-- EquipmentPage
+CreateQuotePage <|-- PropertyInformationPage
+CreateQuotePage <|-- BuildingInformationPage
+
+ViewEmployeeQuotePage -- ManageEmployeeQuotePage
+EmailEmployeeQuotePage -- ViewEmployeeQuotePage
+ManageEmployeeQuotePage -- EditEmployeeQuotePage
+EditEmployeeQuotePage -- EmailEmployeeQuotePage
+ManageEmployeeQuotePage -- DeleteQuotePage
+@enduml

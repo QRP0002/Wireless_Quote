@@ -1,0 +1,13 @@
+@startuml
+[*] --> CreateQuote
+CreateQuote : do/ open new quote
+
+CreateQuote --> FillingInformation : User Fills Out Information
+FillingInformation : do/ display information
+
+FillingInformation --> ValidateInformation : User Selects Done
+ValidateInformation: do/ check information
+
+ValidateInformation --> [*] : Success
+ValidateInformation --> FillingInformation : Failure
+@enduml

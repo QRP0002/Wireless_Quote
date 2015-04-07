@@ -1,0 +1,32 @@
+@startuml
+class EditEmployeeQuoteController {
+    editTextFields()
+    submitChanges()
+}
+class BuildingInformationController {
+    textFields()
+}
+class PropertyInformationController {
+    textFields()
+}
+class EquipmentInformationController {
+    textFields()
+}
+class ActivityBarController {
+    logout()
+}
+
+SystemHomeController -- Controller
+ActivityBarController --|> Controller
+Controller <|-- EmployeeController
+
+CreateQuoteController -- EmployeeController
+DeleteQuoteController -- EmployeeController
+ViewEmployeeQuoteController -- EmployeeController
+EmployeeHomeController -- EmployeeController
+EmployeeController -- EquipmentInformationController
+EmployeeController -- PropertyInformationController
+EmployeeController -- EditEmployeeQuoteController
+EmployeeController -- BuildingInformationController
+
+@enduml

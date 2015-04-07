@@ -1,0 +1,20 @@
+
+@startuml
+User -> SystemHomePage : Log In
+activate User
+activate SystemHomePage
+activate UserHomePage
+SystemHomePage -> UserHomePage  : onCreate()
+UserHomePage -> UserHomePageController: onCreate
+activate UserHomePageController
+User -> UserHomePage : Click Manage Quote
+UserHomePage -> UserHomePageController : Send Information
+UserHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+UserHomePageController -> ManageQuotePage : Display Field
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+ManageQuotePageController -> ManageQuotePageController : checkQuotes()
+ManageQuotePageController --> ManageQuotePage : displayNoQuote(True)
+ManageQuotePage --> User : Display: Error No Quotes Found
+@enduml

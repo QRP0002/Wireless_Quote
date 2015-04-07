@@ -1,0 +1,20 @@
+@startuml
+Customer -> SystemHomePage : login()
+activate Customer
+activate SystemHomePage
+SystemHomePage -> SystemHomePageController : onCreate()
+activate SystemHomePageController
+SystemHomePageController -> LoginTextBox : onCreate
+activate LoginTextBox
+SystemHomePageController -> LoginTextBox : Display fields
+Customer -> LoginTextBox : Enter username and password
+Customer-> LoginTextBox : Submit Information
+LoginTextBox --> SystemHomePageController : submitInfo()
+deactivate LoginTextBox
+SystemHomePageController -> ServerList : verifyUser()
+activate ServerList
+ServerList --> SystemHomePageController : login(False)
+deactivate ServerList
+SystemHomePageController --> SystemHomePage : createFailure(True)
+SystemHomePage --> Customer: Display Invalid Information
+@enduml

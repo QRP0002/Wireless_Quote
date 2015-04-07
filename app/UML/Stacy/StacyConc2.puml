@@ -1,0 +1,31 @@
+@startuml
+Employee -> SystemHomePage : Log In
+activate Employee
+activate SystemHomePage
+activate EmployeeHomePage
+SystemHomePage -> EmployeeHomePage  : onCreate()
+EmployeeHomePage -> EmployeeHomePageController: onCreate
+activate EmployeeHomePageController
+EmployeeHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+EmployeeHomePageController -> ManageQuotePage : Display Field
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+Employee -> ManageQuotePageController : Click Manage Quote
+ManageQuotePage --> Employee : Options To Pick
+Employee -> ManageQuotePage : Select Quote
+Employee -> ManageQuotePage : Select Remove Quote
+ManageQuotePage -> ManageQuotePageController : Send Information
+ManageQuotePageController -> DeletePage : Send Information and Call
+activate DeletePage
+DeletePage -> DeletePageController : onCreate()
+activate DeletePageController
+DeletePageController -> DeletePageController : Validate
+DeletePageController --> DeletePage : Confirm Delete
+DeletePage --> Employee : Confirm Remove
+Employee -> DeletePage : remove(False)
+DeletePage -> DeletePageController : remove(False)
+DeletePage --> ManageQuotePageController : Return
+ManageQuotePageController --> ManageQuotePage : Return
+
+@enduml

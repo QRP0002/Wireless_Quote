@@ -1,0 +1,56 @@
+@startuml
+
+class PropertyInformation {
+Company Name
+Address
+}
+
+class BuildingInformation{
+Buildings
+Units
+Rooms
+Floors
+Notes
+Rack Location
+}
+
+class Cost {
+Hours
+Labor Fee
+Product Cost
+}
+
+class Customer {
+Contact Information
+}
+
+class Equipment {
+Cable
+Servers
+Routers
+Wireless Access Points
+}
+
+class Information
+class Quote
+class InstallationCompany
+class Employee {
+Contact Information
+}
+
+Customer "1" -- "1" InstallationCompany : Hires
+PropertyInformation --|> Information
+Quote "1" -- "1" Information : Displays
+BuildingInformation --|> Information
+InstallationCompany "1" -- "+" Information : Fills Out
+InstallationCompany "1" -- "+" Equipment : Provides
+InstallationCompany "1" -- "+" Employee : Hires
+Quote "1" -- "1" Equipment : Displays
+Quote "1" -- "1" Cost : Displays
+Quote "1" -- "1" InstallationCompany : Gets
+Quote "1" -- "1" Customer : Gets
+Cost "1" -- "1" Information : Calculates
+Cost "1" -- "+" Equipment : Calculates
+Customer "1" -- "+" Information : Provides
+
+@enduml

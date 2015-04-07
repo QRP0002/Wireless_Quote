@@ -1,0 +1,26 @@
+@startuml
+Employee -> SystemHomePage : Log In
+activate Employee
+activate SystemHomePage
+activate EmployeeHomePage
+SystemHomePage -> EmployeeHomePage  : onCreate()
+EmployeeHomePage -> EmployeeHomePageController: onCreate
+activate EmployeeHomePageController
+Employee -> EmployeeHomePage : Create New Quote
+EmployeeHomePage -> EmployeeHomePageController : createNewQuote()
+EmployeeHomePageController -> CreateQuotePage : On Create
+activate CreateQuotePage
+CreateQuotePage -> CreateQuotePageController : onCreate()
+activate CreateQuotePageController
+CreateQuotePage --> Employee : Empty Fields
+Employee -> CreateQuotePage : Fill Out Fields
+Employee -> CreateQuotePage : Submit New Quote
+CreateQuotePage -> CreateQuotePageController : Send Information
+CreateQuotePageController -> CreateQuotePageController : Validate
+CreateQuotePageController -> CalculateCostController : onCreate()
+activate CalculateCostController
+CreateQuotePageController -> CalculateCostController : validate(False)
+CalculateCostController --> CreateQuotePageController : informationError(True)
+CreateQuotePageController --> CreateQuotePage : Need Information
+CreateQuotePage --> Employee : Display: Need Information
+@enduml

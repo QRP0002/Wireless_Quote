@@ -1,0 +1,28 @@
+@startuml
+Employee -> SystemHomePage : Log In
+activate Employee
+activate SystemHomePage
+activate EmployeeHomePage
+SystemHomePage -> EmployeeHomePage  : onCreate()
+EmployeeHomePage -> EmployeeHomePageController: onCreate
+activate EmployeeHomePageController
+EmployeeHomePageController -> ManageQuotePage : onClickCreate ()
+activate ManageQuotePage
+EmployeeHomePageController -> ManageQuotePage : Display Field
+ManageQuotePage -> ManageQuotePageController : onCreate()
+activate ManageQuotePageController
+Employee -> ManageQuotePageController : Click Manage Quote
+ManageQuotePageController -> EditQuotePage : onClickCreate()
+activate EditQuotePage
+Employee -> EditQuotePage : Click Edit Quote
+EditQuotePage -> EditQuotePageController  : onCreate()
+activate EditQuotePageController
+EditQuotePageController --> EditQuotePage : Display Fields
+Employee -> EditQuotePage : Change Fields
+Employee -> EditQuotePage : Submit
+EditQuotePage -> EditQuotePageController : Return Employee Changes
+EditQuotePageController -> Server : Save Changes
+activate Server
+
+
+@enduml
