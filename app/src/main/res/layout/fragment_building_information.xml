@@ -1,0 +1,68 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <EditText
+        android:id="@+id/new_building"
+        android:hint="Customer Username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:text="@string/new_customer_buildings"/>
+
+    <EditText
+        android:id="@+id/new_units"
+        android:hint="Customer Password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:text="@string/new_customer_units"/>
+
+    <EditText
+        android:id="@+id/new_rooms"
+        android:hint="Customer First Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:text="@string/new_customer_rooms"/>
+
+    <EditText
+        android:id="@+id/new_floors"
+        android:hint="Customer Last Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textSize="24dp"
+        android:text="@string/new_customer_floors"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+
+     <Button
+        android:id="@+id/previous_button_building"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous_building_information"
+        android:onClick="previous"/>
+
+    <Button
+        android:id="@+id/next_button_building"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/next_building_information"
+        android:onClick="next"/>
+    </LinearLayout>
+
+</LinearLayout>
