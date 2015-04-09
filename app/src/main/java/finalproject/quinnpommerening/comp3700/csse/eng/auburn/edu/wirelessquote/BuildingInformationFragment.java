@@ -50,6 +50,10 @@ public class BuildingInformationFragment extends Fragment {
                 EditText editRooms = (EditText) view.findViewById(R.id.new_rooms);
                 EditText editFloors = (EditText) view.findViewById(R.id.new_floors);
 
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(editBuildings.getWindowToken(), 0);
+
                 String newBilding = editBuildings.getText().toString();
                 String newUnits = editUnits.getText().toString();
                 String newRooms = editRooms.getText().toString();

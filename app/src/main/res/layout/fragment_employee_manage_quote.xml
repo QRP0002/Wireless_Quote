@@ -1,0 +1,34 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/employee_view_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/employee_view_button"
+        android:onClick="View Quote"/>
+
+    <Button
+        android:id="@+id/employee_edit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/employee_edit_button"
+        android:onClick="Edit Quote"/>
+
+    <Button
+        android:id="@+id/employee_removeC_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/employee_removeC_button"
+        android:onClick="Remove Customer"/>
+
+    <Button
+        android:id="@+id/employee_removeQ_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/employee_removeQ_button"
+        android:onClick="Remove Quote"/>
+</LinearLayout>

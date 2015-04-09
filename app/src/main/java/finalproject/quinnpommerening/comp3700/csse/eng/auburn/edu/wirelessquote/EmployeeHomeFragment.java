@@ -43,7 +43,7 @@ public class EmployeeHomeFragment extends Fragment {
         mManageQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new ManageQuoteFragment();
+                Fragment display = new EmployeeManageQuoteFragment();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

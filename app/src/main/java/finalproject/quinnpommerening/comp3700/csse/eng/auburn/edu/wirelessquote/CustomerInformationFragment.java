@@ -30,8 +30,6 @@ public class CustomerInformationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_customer_information, container, false);
-        InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
-                Context.INPUT_METHOD_SERVICE);
 
         mNextButton = (Button)view.findViewById(R.id.next_button_customer);
         mNextButton.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +49,10 @@ public class CustomerInformationFragment extends Fragment {
                 EditText editMiddleI = (EditText) view.findViewById(R.id.new_customer_middle);
                 EditText editCompanyName = (EditText) view.findViewById(R.id.new_company_name);
                 EditText editCompanyAddress = (EditText) view.findViewById(R.id.new_company_address);
+
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(editUserName.getWindowToken(), 0);
 
                 String newUserName = editUserName.getText().toString();
                 String newPassword = editPassword.getText().toString();
