@@ -2,37 +2,40 @@ package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote
 
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
 
 /**
-
+ *
  */
-public class EmployeeHomeFragment extends Fragment {
-        private Button mCreateNewQuote;
-        private Button mManageQuote;
+public class EquipmentFragment extends Fragment {
+    private Button mPreviousButton;
+    private Button mSaveButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
 
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_employee_home, container, false);
-        mCreateNewQuote = (Button)v.findViewById(R.id.create_quote_button);
-        mManageQuote = (Button) v.findViewById(R.id.manage_quote_button);
+        View v = inflater.inflate(R.layout.fragment_equipment, container, false);
 
-        mCreateNewQuote.setOnClickListener(new View.OnClickListener() {
+        mSaveButton = (Button)v.findViewById(R.id.save_equipment_information);
+        mPreviousButton = (Button)v.findViewById(R.id.previous_button_equipment);
+
+        mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new CustomerInformationFragment();
+                Fragment display = new EmployeeHomeFragment();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -40,10 +43,10 @@ public class EmployeeHomeFragment extends Fragment {
             }
         });
 
-        mManageQuote.setOnClickListener(new View.OnClickListener() {
+        mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new ManageQuoteFragment();
+                Fragment display = new BuildingInformationFragment();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -52,6 +55,4 @@ public class EmployeeHomeFragment extends Fragment {
         });
         return v;
     }
-
-
 }

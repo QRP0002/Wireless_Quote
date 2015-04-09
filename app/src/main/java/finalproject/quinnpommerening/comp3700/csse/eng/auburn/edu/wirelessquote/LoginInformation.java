@@ -45,10 +45,16 @@ public class LoginInformation {
     /////////////Used for Login Information////////////////
     ///////////////////////////////////////////////////////
     public void addUser(){
-        loginDetailEmployee.put("qrp0002", "employee");
-        loginDetailCustomer.put("sep0020", "customer");
+        loginDetailEmployee.put("quinn", "emp");
+        loginDetailCustomer.put("stacy", "cust");
     }
 
+    /**
+     * Will test the see if the user is an employee by the input typed in.
+     * @param username Takes in the users name typed in.
+     * @param password Takes in the users password typed in.
+     * @return true if the user name is found, or false.
+     */
     public boolean determineEmployee (String username, String password) {
         if (loginDetailEmployee.containsKey(username)) {
             if (loginDetailEmployee.containsValue(password)) {
