@@ -16,4 +16,26 @@
 
     <!--Create Quote-->
     <string name="create_quote_button">Create New Quote</string>
+
+    <!--Customer Information-->
+    <string name="new_customer_username"></string>
+    <string name="new_customer_password"></string>
+    <string name="new_customer_first_name"></string>
+    <string name="new_customer_last_name"></string>
+    <string name="new_customer_middlei"></string>
+    <string name="new_company_name"></string>
+    <string name="new_company_address"></string>
+    <string name="next_customer_information">Next</string>
+
+    <!--Building Information-->
+    <string name="new_customer_buildings"></string>
+    <string name="new_customer_units"></string>
+    <string name="new_customer_rooms"></string>
+    <string name="new_customer_floors"></string>
+    <string name="next_building_information">Next</string>
+    <string name="previous_building_information">Previous</string>
+
+    <!--Equipment Page-->
+    <string name="previous_equipment_information">Previous</string>
+    <string name="save_equipment_information">Save</string>
 </resources>
