@@ -14,6 +14,7 @@ public class LoginInformation {
     String password;
     HashMap<String, String> loginDetailCustomer = new HashMap<>();
     HashMap<String, String> loginDetailEmployee = new HashMap<>();
+    HashMap<String, String> addCustomerHash = new HashMap<>();
 
     LoginInformation(String username, String password) {
         this.username = username;
@@ -44,10 +45,11 @@ public class LoginInformation {
     ///////////////////////////////////////////////////////
     /////////////Used for Login Information////////////////
     ///////////////////////////////////////////////////////
-    public void addUser(){
+    public void loadUsers(){
         loginDetailEmployee.put("quinn", "emp");
         loginDetailCustomer.put("stacy", "cust");
     }
+
 
     /**
      * Will test the see if the user is an employee by the input typed in.

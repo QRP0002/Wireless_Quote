@@ -3,6 +3,7 @@ package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

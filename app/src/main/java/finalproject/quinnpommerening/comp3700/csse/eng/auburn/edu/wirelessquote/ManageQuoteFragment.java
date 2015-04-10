@@ -31,7 +31,7 @@ public class ManageQuoteFragment extends Fragment {
         mEditQuote = (Button) v.findViewById(R.id.customer_edit_button);
 
         /**
-         * Will load the View Quote Frament
+         * Will load the View Quote Fragment
          */
         mViewQuote.setOnClickListener(new View.OnClickListener() {
             @Override

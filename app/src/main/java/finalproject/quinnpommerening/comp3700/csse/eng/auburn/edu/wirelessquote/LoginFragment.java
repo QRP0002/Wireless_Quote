@@ -43,7 +43,7 @@ public class LoginFragment extends Fragment {
                 String password = editText1.getText().toString();
 
                 LoginInformation li = new LoginInformation(username, password);
-                li.addUser(); //Fills the HashMap with the preset list.
+                li.loadUsers(); //Fills the HashMap with the preset list.
                 if (li.determineEmployee(username, password)) {
                     Fragment display = new EmployeeHomeFragment();
                     getFragmentManager().beginTransaction()

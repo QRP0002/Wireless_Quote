@@ -17,6 +17,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
     private Button mEditQuote;
     private Button mRemoveCustomer;
     private Button mRemoveQuote;
+    private Button mLogOff;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mEditQuote = (Button) v.findViewById(R.id.employee_edit_button);
         mRemoveCustomer = (Button)v.findViewById(R.id.employee_removeC_button);
         mRemoveQuote = (Button) v.findViewById(R.id.employee_removeQ_button);
+        mLogOff = (Button) v.findViewById(R.id.employee_logoff_button);
 
         /**
          * Will load the View Quote Frament
@@ -88,7 +90,19 @@ public class EmployeeManageQuoteFragment extends Fragment {
                         .commit();
             }
         });
+
+        mLogOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment display = new LoginFragment();
+                getFragmentManager().beginTransaction()
+                        .addToBackStack("fragment")
+                        .replace(R.id.fragment_container, display, "display")
+                        .commit();
+            }
+        });
         return v;
+
     }
 
 }
