@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import io.realm.Realm;
+
 
 /**
  *
@@ -34,24 +36,42 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                EditText editText = (EditText) view.findViewById(R.id.username_login);
-                EditText editText1 = (EditText) view.findViewById(R.id.password_login);
+                EditText editUsername = (EditText) view.findViewById(R.id.username_login);
+                EditText editPassword = (EditText) view.findViewById(R.id.password_login);
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
                         Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
-                String username = editText.getText().toString();
-                String password = editText1.getText().toString();
+                imm.hideSoftInputFromWindow(editUsername.getWindowToken(), 0);
+
+                final String username = editUsername.getText().toString();
+                final String password = editPassword.getText().toString();
+
+                Realm realm = Realm.getInstance(getActivity());
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        LoginInformation li = realm.createObject(LoginInformation.class);
+                        li.setUsername(username);
+                        li.setPassword(password);
+                    }
+                });
+
+               /** Fragment display = BuildingInformationFragment.newInstance(newUserName);
+                   getFragmentManager().beginTransaction()
+                        .addToBackStack("fragment")
+                        .replace(R.id.fragment_container, display, "display")
+                        .commit();
+                */
 
                 LoginInformation li = new LoginInformation(username, password);
                 li.loadUsers(); //Fills the HashMap with the preset list.
                 if (li.determineEmployee(username, password)) {
-                    Fragment display = new EmployeeHomeFragment();
+                    Fragment display = EmployeeHomeFragment.newInstance();
                     getFragmentManager().beginTransaction()
                             .addToBackStack("fragment")
                             .replace(R.id.fragment_container, display, "display")
                             .commit();
                 } else if (li.determineCustomer(username, password)) {
-                    Fragment display = new CustomerHomeFragment();
+                    Fragment display = CustomerHomeFragment.newInstance();
                     getFragmentManager().beginTransaction()
                             .addToBackStack("fragment")
                             .replace(R.id.fragment_container, display, "display")
