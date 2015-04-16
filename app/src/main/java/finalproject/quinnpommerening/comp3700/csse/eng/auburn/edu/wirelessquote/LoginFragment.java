@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 import io.realm.Realm;
 
 
@@ -19,6 +21,14 @@ import io.realm.Realm;
  */
 public class LoginFragment extends Fragment {
     private Button mLoginButton;
+    private HashMap<String, String> loginDetailEmployee = new HashMap<>();
+
+    public static LoginFragment newInstance() {
+        LoginFragment f = new LoginFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,8 +60,8 @@ public class LoginFragment extends Fragment {
                     @Override
                     public void execute(Realm realm) {
                         LoginInformation li = realm.createObject(LoginInformation.class);
-                        li.setUsername(username);
-                        li.setPassword(password);
+                        li.setmUsername(username);
+                        li.setmPassword(password);
                     }
                 });
 
@@ -62,15 +72,15 @@ public class LoginFragment extends Fragment {
                         .commit();
                 */
 
-                LoginInformation li = new LoginInformation(username, password);
-                li.loadUsers(); //Fills the HashMap with the preset list.
-                if (li.determineEmployee(username, password)) {
+
+                loadUsers(); //Fills the HashMap with the preset list.
+                if (determineEmployee(username, password)) {
                     Fragment display = EmployeeHomeFragment.newInstance();
                     getFragmentManager().beginTransaction()
                             .addToBackStack("fragment")
                             .replace(R.id.fragment_container, display, "display")
                             .commit();
-                } else if (li.determineCustomer(username, password)) {
+                } else if (determineCustomer(username, password)) {
                     Fragment display = CustomerHomeFragment.newInstance();
                     getFragmentManager().beginTransaction()
                             .addToBackStack("fragment")
@@ -90,5 +100,27 @@ public class LoginFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
+    }
+
+    /**
+     * Will test the see if the user is an employee by the input typed in.
+     * @param username Takes in the users name typed in.
+     * @param password Takes in the users password typed in.
+     * @return true if the user name is found, or false.
+     */
+    public boolean determineEmployee (String username, String password) {
+        if (loginDetailEmployee.containsKey(username)) {
+            if (loginDetailEmployee.containsValue(password)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    //////////////////////////////////////////////////////
+    ///////////Used for Employee Information//////////////
+    //////////////////////////////////////////////////////
+    public void loadUsers(){
+        loginDetailEmployee.put("quinn", "emp");
     }
 }
