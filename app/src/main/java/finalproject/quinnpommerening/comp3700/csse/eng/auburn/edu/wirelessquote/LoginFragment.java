@@ -11,8 +11,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.HashMap;
-
 import io.realm.Realm;
 
 
@@ -59,8 +57,8 @@ public class LoginFragment extends Fragment {
                     @Override
                     public void execute(Realm realm) {
                         LoginInformation li = realm.createObject(LoginInformation.class);
-                        li.setmUsername(username);
-                        li.setmPassword(password);
+                        li.setUsername(username);
+                        li.setPassword(password);
                     }
                 });
 
@@ -71,7 +69,7 @@ public class LoginFragment extends Fragment {
                         .commit();
                 */
 
-                UserLoginRequest user = new UserLoginRequest();
+                UserLoginRequest user = new UserLoginRequest(getActivity());
                 user.loadUsers();
                 if (user.determineEmployee(username, password)) {
                     Fragment display = EmployeeHomeFragment.newInstance();
