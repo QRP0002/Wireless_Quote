@@ -9,22 +9,22 @@ import io.realm.RealmObject;
  * This will cause the login to go to either EmployeeHomeFragment or CustomerHomeFragment.
  */
 public class LoginInformation extends RealmObject {
-    private String mUsername;
-    private String mPassword;
+    private String username;
+    private String password;
 
-    public String getmUsername() {
-        return mUsername;
+    public String getUsername() {
+        return username;
     }
 
-    public void setmUsername(String mUsername) {
-        this.mUsername = mUsername;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getmPassword() {
-        return mPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setmPassword(String mPassword) {
-        this.mPassword = mPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

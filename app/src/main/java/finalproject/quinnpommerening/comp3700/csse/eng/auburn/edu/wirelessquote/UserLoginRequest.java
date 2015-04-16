@@ -1,5 +1,7 @@
 package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote;
 
+import android.content.Context;
+
 import java.util.HashMap;
 
 import io.realm.Realm;
@@ -10,11 +12,17 @@ import io.realm.RealmResults;
  */
 public class UserLoginRequest {
 
-    LoginInformation li = new LoginInformation();
-    public String username = li.getmUsername();
-    public String password = li.getmPassword();
     private HashMap<String, String> loginDetailEmployee = new HashMap<>();
-    Realm realm;
+    private Realm realm;
+
+    /**
+     * Creates a new UserLoginRequest.
+     *
+     * @param context required to create the Realm instance that will be used.
+     */
+    public UserLoginRequest(Context context) {
+        realm = Realm.getInstance(context);
+    }
 
     public void loadUsers(){
         loginDetailEmployee.put("quinn", "emp");
@@ -41,9 +49,6 @@ public class UserLoginRequest {
     }
 
     public boolean determineCustomerRequest(RealmResults users) {
-        if(users.size() != 0) {
-            return true;
-        }
-        return false;
+        return users.size() != 0;
     }
 }
