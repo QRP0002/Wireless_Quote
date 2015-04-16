@@ -38,6 +38,7 @@
     <!--Equipment Page-->
     <string name="previous_equipment_information">Previous</string>
     <string name="save_equipment_information">Save</string>
+    <string name="equipment_text">Pick the Appropriate Equipment</string>
 
     <!--Employee Manage Quote -->
     <string name="employee_view_button">Edit Quote</string>

@@ -21,7 +21,6 @@ import io.realm.Realm;
  */
 public class LoginFragment extends Fragment {
     private Button mLoginButton;
-    private HashMap<String, String> loginDetailEmployee = new HashMap<>();
 
     public static LoginFragment newInstance() {
         LoginFragment f = new LoginFragment();
@@ -72,15 +71,15 @@ public class LoginFragment extends Fragment {
                         .commit();
                 */
 
-
-                loadUsers(); //Fills the HashMap with the preset list.
-                if (determineEmployee(username, password)) {
+                UserLoginRequest user = new UserLoginRequest();
+                user.loadUsers();
+                if (user.determineEmployee(username, password)) {
                     Fragment display = EmployeeHomeFragment.newInstance();
                     getFragmentManager().beginTransaction()
                             .addToBackStack("fragment")
                             .replace(R.id.fragment_container, display, "display")
                             .commit();
-                } else if (determineCustomer(username, password)) {
+                } else if (user.determineCustomerRequest(user.determineCustomer(username, password))) {
                     Fragment display = CustomerHomeFragment.newInstance();
                     getFragmentManager().beginTransaction()
                             .addToBackStack("fragment")
@@ -100,27 +99,5 @@ public class LoginFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-    }
-
-    /**
-     * Will test the see if the user is an employee by the input typed in.
-     * @param username Takes in the users name typed in.
-     * @param password Takes in the users password typed in.
-     * @return true if the user name is found, or false.
-     */
-    public boolean determineEmployee (String username, String password) {
-        if (loginDetailEmployee.containsKey(username)) {
-            if (loginDetailEmployee.containsValue(password)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    //////////////////////////////////////////////////////
-    ///////////Used for Employee Information//////////////
-    //////////////////////////////////////////////////////
-    public void loadUsers(){
-        loginDetailEmployee.put("quinn", "emp");
     }
 }

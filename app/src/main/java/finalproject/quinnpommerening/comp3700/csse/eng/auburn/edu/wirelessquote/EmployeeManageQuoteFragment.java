@@ -19,6 +19,13 @@ public class EmployeeManageQuoteFragment extends Fragment {
     private Button mRemoveQuote;
     private Button mLogOff;
 
+    public static EmployeeManageQuoteFragment newInstance() {
+        EmployeeManageQuoteFragment f = new EmployeeManageQuoteFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +48,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mViewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new ViewQuoteFragment();
+                Fragment display = ViewQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -55,7 +62,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mEditQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new EditQuoteFragment();
+                Fragment display = EditQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -69,7 +76,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mRemoveCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new RemoveCustomerFragment();
+                Fragment display = RemoveCustomerFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -83,7 +90,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mRemoveQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new DeleteQuoteFragment();
+                Fragment display = DeleteQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -94,7 +101,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mLogOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new LoginFragment();
+                Fragment display = LoginFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

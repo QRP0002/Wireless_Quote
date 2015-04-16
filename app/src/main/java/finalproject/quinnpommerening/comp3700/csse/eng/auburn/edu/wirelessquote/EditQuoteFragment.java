@@ -13,6 +13,13 @@ import android.view.ViewGroup;
  */
 public class EditQuoteFragment extends Fragment {
 
+    public static EditQuoteFragment newInstance() {
+        EditQuoteFragment f = new EditQuoteFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

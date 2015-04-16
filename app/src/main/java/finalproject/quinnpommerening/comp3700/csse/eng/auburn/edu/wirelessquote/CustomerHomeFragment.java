@@ -1,7 +1,6 @@
 package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote;
 
-import android.app.Activity;
-import android.net.Uri;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -15,6 +14,13 @@ import android.widget.Button;
  */
 public class CustomerHomeFragment extends Fragment {
     private Button mManageQuote;
+
+    public static CustomerHomeFragment newInstance() {
+        CustomerHomeFragment f = new CustomerHomeFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,7 +37,7 @@ public class CustomerHomeFragment extends Fragment {
         mManageQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new ManageQuoteFragment();
+                Fragment display = ManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

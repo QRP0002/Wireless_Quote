@@ -16,6 +16,13 @@ public class ManageQuoteFragment extends Fragment {
     private Button mViewQuote;
     private Button mEditQuote;
 
+    public static ManageQuoteFragment newInstance() {
+        ManageQuoteFragment f = new ManageQuoteFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,7 +43,7 @@ public class ManageQuoteFragment extends Fragment {
         mViewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new ViewQuoteFragment();
+                Fragment display = ViewQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -50,7 +57,7 @@ public class ManageQuoteFragment extends Fragment {
         mEditQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new EditQuoteFragment();
+                Fragment display = EditQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

@@ -11,6 +11,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import io.realm.Realm;
+
 
 /**
  *
@@ -18,13 +20,21 @@ import android.widget.EditText;
 public class BuildingInformationFragment extends Fragment {
     private Button mNextButton;
     private Button mPreviousButton;
+    private String mUsername;
+
+    public static BuildingInformationFragment newInstance(String username) {
+        BuildingInformationFragment f = new BuildingInformationFragment();
+        Bundle args = new Bundle();
+        args.putString("username", username);
+        f.setArguments(args);
+        return f;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
 
-        }
+        mUsername = getArguments().getString("username");
     }
 
     @Override
@@ -43,7 +53,6 @@ public class BuildingInformationFragment extends Fragment {
         mNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new EquipmentFragment();
 
                 EditText editBuildings = (EditText) view.findViewById(R.id.new_building);
                 EditText editUnits = (EditText) view.findViewById(R.id.new_units);
@@ -54,11 +63,30 @@ public class BuildingInformationFragment extends Fragment {
                         Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(editBuildings.getWindowToken(), 0);
 
-                String newBilding = editBuildings.getText().toString();
-                String newUnits = editUnits.getText().toString();
-                String newRooms = editRooms.getText().toString();
-                String newFloors = editFloors.getText().toString();
+                final String newBuilding = editBuildings.getText().toString();
+                final String newUnits = editUnits.getText().toString();
+                final String newRooms = editRooms.getText().toString();
+                final String newFloors = editFloors.getText().toString();
 
+                Realm realm = Realm.getInstance(getActivity());
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        BuildInformation bi = realm.createObject(BuildInformation.class);
+                        bi.setmBuilding(newBuilding);
+                        bi.setmUnits(newUnits);
+                        bi.setmRooms(newRooms);
+                        bi.setmFloors(newFloors);
+
+                        CustomerInformation ci = realm.where(CustomerInformation.class)
+                                .equalTo("username", mUsername)
+                                .findFirst();
+
+                        ci.setmBi(bi);
+                    }
+                });
+
+                Fragment display = EquipmentFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -72,7 +100,7 @@ public class BuildingInformationFragment extends Fragment {
         mPreviousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new CustomerInformationFragment();
+                Fragment display = CustomerInformationFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

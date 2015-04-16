@@ -3,7 +3,6 @@ package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +10,21 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 
+import io.realm.Realm;
+
 
 /**
  *
  */
 public class CustomerInformationFragment extends Fragment {
     private Button mNextButton;
+
+    public static CustomerInformationFragment newInstance() {
+        CustomerInformationFragment f = new CustomerInformationFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +49,6 @@ public class CustomerInformationFragment extends Fragment {
              */
             @Override
             public void onClick(View v) {
-                Fragment display = new BuildingInformationFragment();
-
                 EditText editUserName = (EditText) view.findViewById(R.id.new_username);
                 EditText editPassword = (EditText) view.findViewById(R.id.new_password);
                 EditText editFirstName = (EditText) view.findViewById(R.id.new_customer_first_name);
@@ -55,14 +61,31 @@ public class CustomerInformationFragment extends Fragment {
                         Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(editUserName.getWindowToken(), 0);
 
-                String newUserName = editUserName.getText().toString();
-                String newPassword = editPassword.getText().toString();
-                String newFirstName = editFirstName.getText().toString();
-                String newLastName = editLastName.getText().toString();
-                String newMiddleI = editMiddleI.getText().toString();
-                String newCompanyName = editCompanyName.getText().toString();
-                String newCompanyAddress = editCompanyAddress.getText().toString();
+                final String newUserName = editUserName.getText().toString();
+                final String newPassword = editPassword.getText().toString();
+                final String newFirstName = editFirstName.getText().toString();
+                final String newLastName = editLastName.getText().toString();
+                final String newMiddleI = editMiddleI.getText().toString();
+                final String newCompanyName = editCompanyName.getText().toString();
+                final String newCompanyAddress = editCompanyAddress.getText().toString();
 
+                Realm realm = Realm.getInstance(getActivity());
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        CustomerInformation ci = realm.createObject(CustomerInformation.class);
+                        ci.setmUsername(newUserName);
+                        ci.setmPassword(newPassword);
+                        ci.setmFirstName(newFirstName);
+                        ci.setmLastName(newLastName);
+                        ci.setmMiddleI(newMiddleI);
+                        ci.setmCompanyName(newCompanyName);
+                        ci.setmCompanyAddress(newCompanyAddress);
+
+                    }
+                });
+
+                Fragment display = BuildingInformationFragment.newInstance(newUserName);
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

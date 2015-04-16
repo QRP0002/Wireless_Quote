@@ -16,6 +16,13 @@ public class EmployeeHomeFragment extends Fragment {
         private Button mCreateNewQuote;
         private Button mManageQuote;
 
+    public static EmployeeHomeFragment newInstance() {
+        EmployeeHomeFragment f = new EmployeeHomeFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +39,7 @@ public class EmployeeHomeFragment extends Fragment {
         mCreateNewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new CustomerInformationFragment();
+                Fragment display = CustomerInformationFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -43,7 +50,7 @@ public class EmployeeHomeFragment extends Fragment {
         mManageQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = new EmployeeManageQuoteFragment();
+                Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

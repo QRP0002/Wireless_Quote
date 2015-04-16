@@ -1,37 +1,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/employee_view_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/employee_view_button"
-        android:onClick="View Quote"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-    <Button
-        android:id="@+id/employee_edit_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/employee_edit_button"
-        android:onClick="Edit Quote"/>
+        <Spinner
+            android:id="@+id/quote_spinner"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content" />
+        
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_height="0dp"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/employee_removeC_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/employee_removeC_button"
-        android:onClick="Remove Customer"/>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <Button
-        android:id="@+id/employee_removeQ_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/employee_removeQ_button"
-        android:onClick="Remove Quote"/>
+        <Button
+            android:id="@+id/employee_view_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_view_button"
+            android:onClick="View Quote"/>
 
+        <Button
+            android:id="@+id/employee_edit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/employee_edit_button"
+            android:onClick="Edit Quote"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/employee_removeC_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/employee_removeC_button"
+                android:onClick="Remove Customer"/>
+
+            <Button
+                android:id="@+id/employee_removeQ_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/employee_removeQ_button"
+                android:onClick="Remove Quote"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/employee_logoff_button"

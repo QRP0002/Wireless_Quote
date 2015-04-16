@@ -15,6 +15,13 @@ import android.widget.EditText;
 public class RemoveCustomerFragment extends Fragment {
     private Button mRemoveCustomer;
 
+    public static RemoveCustomerFragment newInstance() {
+        RemoveCustomerFragment f = new RemoveCustomerFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +40,10 @@ public class RemoveCustomerFragment extends Fragment {
                 EditText editRemoveUser = (EditText) view.findViewById(R.id.remove_username);
                 String removeUser = editRemoveUser.getText().toString();
                 String password = "";
-                LoginInformation li = new LoginInformation(removeUser, password);
+               // LoginInformation li = new LoginInformation();
 
                //li.removeCustomer(removeUser);
-                Fragment display = new EmployeeManageQuoteFragment();
+                Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

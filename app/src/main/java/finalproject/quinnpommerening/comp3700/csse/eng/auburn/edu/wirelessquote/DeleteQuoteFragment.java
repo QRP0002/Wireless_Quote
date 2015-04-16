@@ -13,6 +13,13 @@ import android.view.ViewGroup;
  */
 public class DeleteQuoteFragment extends Fragment {
 
+    public static DeleteQuoteFragment newInstance() {
+        DeleteQuoteFragment f = new DeleteQuoteFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

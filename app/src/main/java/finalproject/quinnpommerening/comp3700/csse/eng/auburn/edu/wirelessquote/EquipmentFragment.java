@@ -16,6 +16,13 @@ public class EquipmentFragment extends Fragment {
     private Button mPreviousButton;
     private Button mSaveButton;
 
+    public static EquipmentFragment newInstance() {
+        EquipmentFragment f = new EquipmentFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -13,6 +13,13 @@ import android.view.ViewGroup;
  */
 public class ViewQuoteFragment extends Fragment {
 
+    public static ViewQuoteFragment newInstance() {
+        ViewQuoteFragment f = new ViewQuoteFragment();
+        Bundle args = new Bundle();
+        f.setArguments(args);
+        return f;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +29,7 @@ public class ViewQuoteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_view_quote, container, false);
     }
 }

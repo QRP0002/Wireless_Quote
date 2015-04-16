@@ -1,12 +1,6 @@
 package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import io.realm.RealmList;
-import io.realm.Realm;
-import io.realm.RealmList;
 import io.realm.RealmObject;
-import io.realm.RealmResults;
 
 /**
  * Created by Quinn on 4/6/2015.
@@ -17,11 +11,6 @@ import io.realm.RealmResults;
 public class LoginInformation extends RealmObject {
     private String mUsername;
     private String mPassword;
-
-    LoginInformation(String username, String password) {
-        this.mUsername = username;
-        this.mPassword = password;
-    }
 
     public String getmUsername() {
         return mUsername;
@@ -37,20 +26,5 @@ public class LoginInformation extends RealmObject {
 
     public void setmPassword(String mPassword) {
         this.mPassword = mPassword;
-    }
-
-    public RealmResults determineCustomer (String username, String password) {
-        RealmResults<Users> users = realm.where(Users.class)
-                .equalTo("username", username)
-                .equalTo("password", password)
-                .findAll();
-        if (users.size() == 0) {
-            return users;
-        }
-        return users;
-    }
-
-    public boolean determineCustomerRequest(RealmResults users) {
-
     }
 }
