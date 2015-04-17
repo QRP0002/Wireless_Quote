@@ -62,13 +62,6 @@ public class LoginFragment extends Fragment {
                     }
                 });
 
-               /** Fragment display = BuildingInformationFragment.newInstance(newUserName);
-                   getFragmentManager().beginTransaction()
-                        .addToBackStack("fragment")
-                        .replace(R.id.fragment_container, display, "display")
-                        .commit();
-                */
-
                 UserLoginRequest user = new UserLoginRequest(getActivity());
                 user.loadUsers();
                 if (user.determineEmployee(username, password)) {

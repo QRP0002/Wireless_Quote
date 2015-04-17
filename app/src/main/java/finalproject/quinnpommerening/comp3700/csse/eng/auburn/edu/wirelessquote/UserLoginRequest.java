@@ -3,7 +3,6 @@ package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote
 import android.content.Context;
 
 import java.util.HashMap;
-
 import io.realm.Realm;
 import io.realm.RealmResults;
 

@@ -73,15 +73,14 @@ public class BuildingInformationFragment extends Fragment {
                     @Override
                     public void execute(Realm realm) {
                         BuildInformation bi = realm.createObject(BuildInformation.class);
-                        bi.setmBuilding(newBuilding);
-                        bi.setmUnits(newUnits);
-                        bi.setmRooms(newRooms);
-                        bi.setmFloors(newFloors);
+                        bi.setBuilding(newBuilding);
+                        bi.setUnits(newUnits);
+                        bi.setRooms(newRooms);
+                        bi.setFloors(newFloors);
 
                         CustomerInformation ci = realm.where(CustomerInformation.class)
                                 .equalTo("username", mUsername)
                                 .findFirst();
-
                         ci.setmBi(bi);
                     }
                 });

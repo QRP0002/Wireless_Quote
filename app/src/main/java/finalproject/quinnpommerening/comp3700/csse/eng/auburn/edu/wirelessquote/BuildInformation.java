@@ -6,40 +6,40 @@ import io.realm.RealmObject;
  * Created by Quinn on 4/15/2015.
  */
 public class BuildInformation extends RealmObject {
-    private String mBuilding;
-    private String mUnits;
-    private String mRooms;
-    private String mFloors;
+    private String building;
+    private String units;
+    private String rooms;
+    private String floors;
 
-    public String getmBuilding() {
-        return mBuilding;
+    public String getBuilding() {
+        return building;
     }
 
-    public void setmBuilding(String mBuilding) {
-        this.mBuilding = mBuilding;
+    public void setBuilding(String building) {
+        this.building = building;
     }
 
-    public String getmUnits() {
-        return mUnits;
+    public String getUnits() {
+        return units;
     }
 
-    public void setmUnits(String mUnits) {
-        this.mUnits = mUnits;
+    public void setUnits(String units) {
+        this.units = units;
     }
 
-    public String getmRooms() {
-        return mRooms;
+    public String getRooms() {
+        return rooms;
     }
 
-    public void setmRooms(String mRooms) {
-        this.mRooms = mRooms;
+    public void setRooms(String rooms) {
+        this.rooms = rooms;
     }
 
-    public String getmFloors() {
-        return mFloors;
+    public String getFloors() {
+        return floors;
     }
 
-    public void setmFloors(String mFloors) {
-        this.mFloors = mFloors;
+    public void setFloors(String floors) {
+        this.floors = floors;
     }
 }
