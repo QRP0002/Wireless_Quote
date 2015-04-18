@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
@@ -17,8 +18,6 @@ import java.util.List;
  *
  */
 public class EquipmentFragment extends Fragment {
-    private Button mPreviousButton;
-    private Button mSaveButton;
     private Spinner mSpinnerOne;
     private Spinner mSpinnerTwo;
     private Spinner mSpinnerThree;
@@ -43,8 +42,8 @@ public class EquipmentFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_equipment, container, false);
 
-        mSaveButton = (Button)v.findViewById(R.id.save_equipment_information);
-        mPreviousButton = (Button)v.findViewById(R.id.previous_button_equipment);
+        Button mSaveButton = (Button) v.findViewById(R.id.save_equipment_information);
+        Button mPreviousButton = (Button) v.findViewById(R.id.previous_button_equipment);
         mSpinnerOne = (Spinner) v.findViewById(R.id.equipment_spinner_1);
         mSpinnerTwo = (Spinner) v.findViewById(R.id.equipment_spinner_2);
         mSpinnerThree = (Spinner) v.findViewById(R.id.equipment_spinner_3);
@@ -64,6 +63,22 @@ public class EquipmentFragment extends Fragment {
         spinnerThreeArray.add("One");
         spinnerThreeArray.add("Two");
         spinnerThreeArray.add("Three");
+
+        ArrayAdapter<String> adapterOne = new ArrayAdapter<>(
+                getActivity(), android.R.layout.simple_spinner_item, spinnerOneArray);
+        adapterOne.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> adapterTwo = new ArrayAdapter<>(
+                getActivity(), android.R.layout.simple_spinner_item, spinnerTwoArray);
+        adapterTwo.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        ArrayAdapter<String> adapterThree = new ArrayAdapter<>(
+                getActivity(), android.R.layout.simple_spinner_item, spinnerThreeArray);
+        adapterThree.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        mSpinnerOne.setAdapter(adapterOne);
+        mSpinnerTwo.setAdapter(adapterTwo);
+        mSpinnerThree.setAdapter(adapterThree);
 
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override

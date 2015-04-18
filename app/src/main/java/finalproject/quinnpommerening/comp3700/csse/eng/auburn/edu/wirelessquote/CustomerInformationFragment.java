@@ -17,7 +17,6 @@ import io.realm.Realm;
  *
  */
 public class CustomerInformationFragment extends Fragment {
-    private Button mNextButton;
 
     public static CustomerInformationFragment newInstance() {
         CustomerInformationFragment f = new CustomerInformationFragment();
@@ -29,9 +28,6 @@ public class CustomerInformationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
     }
 
 
@@ -40,7 +36,7 @@ public class CustomerInformationFragment extends Fragment {
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fragment_customer_information, container, false);
 
-        mNextButton = (Button)view.findViewById(R.id.next_button_customer);
+        Button mNextButton = (Button) view.findViewById(R.id.next_button_customer);
         mNextButton.setOnClickListener(new View.OnClickListener() {
 
             /**
@@ -57,7 +53,7 @@ public class CustomerInformationFragment extends Fragment {
                 EditText editCompanyName = (EditText) view.findViewById(R.id.new_company_name);
                 EditText editCompanyAddress = (EditText) view.findViewById(R.id.new_company_address);
 
-                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(
                         Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(editUserName.getWindowToken(), 0);
 
@@ -74,13 +70,13 @@ public class CustomerInformationFragment extends Fragment {
                     @Override
                     public void execute(Realm realm) {
                         CustomerInformation ci = realm.createObject(CustomerInformation.class);
-                        ci.setmUsername(newUserName);
-                        ci.setmPassword(newPassword);
-                        ci.setmFirstName(newFirstName);
-                        ci.setmLastName(newLastName);
-                        ci.setmMiddleI(newMiddleI);
-                        ci.setmCompanyName(newCompanyName);
-                        ci.setmCompanyAddress(newCompanyAddress);
+                        ci.setUsername(newUserName);
+                        ci.setPassword(newPassword);
+                        ci.setFirstName(newFirstName);
+                        ci.setLastName(newLastName);
+                        ci.setMiddleI(newMiddleI);
+                        ci.setCompanyName(newCompanyName);
+                        ci.setCompanyAddress(newCompanyAddress);
 
                     }
                 });

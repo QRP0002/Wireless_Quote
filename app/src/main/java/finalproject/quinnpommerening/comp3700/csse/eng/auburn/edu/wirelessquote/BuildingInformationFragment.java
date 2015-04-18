@@ -18,8 +18,6 @@ import io.realm.Realm;
  *
  */
 public class BuildingInformationFragment extends Fragment {
-    private Button mNextButton;
-    private Button mPreviousButton;
     private String mUsername;
 
     public static BuildingInformationFragment newInstance(String username) {
@@ -44,8 +42,8 @@ public class BuildingInformationFragment extends Fragment {
         InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
                 Context.INPUT_METHOD_SERVICE);
 
-        mNextButton = (Button)view.findViewById(R.id.next_button_building);
-        mPreviousButton = (Button)view.findViewById(R.id.previous_button_building);
+        Button mNextButton = (Button) view.findViewById(R.id.next_button_building);
+        Button mPreviousButton = (Button) view.findViewById(R.id.previous_button_building);
 
         /**
          * This button will go to the next page, EquipmentFragment.
@@ -59,7 +57,7 @@ public class BuildingInformationFragment extends Fragment {
                 EditText editRooms = (EditText) view.findViewById(R.id.new_rooms);
                 EditText editFloors = (EditText) view.findViewById(R.id.new_floors);
 
-                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(
                         Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(editBuildings.getWindowToken(), 0);
 
@@ -81,7 +79,7 @@ public class BuildingInformationFragment extends Fragment {
                         CustomerInformation ci = realm.where(CustomerInformation.class)
                                 .equalTo("username", mUsername)
                                 .findFirst();
-                        ci.setmBi(bi);
+                        ci.setBi(bi);
                     }
                 });
 

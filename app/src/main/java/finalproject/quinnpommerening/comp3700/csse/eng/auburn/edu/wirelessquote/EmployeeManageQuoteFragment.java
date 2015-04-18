@@ -13,11 +13,6 @@ import android.widget.Button;
  *
  */
 public class EmployeeManageQuoteFragment extends Fragment {
-    private Button mViewQuote;
-    private Button mEditQuote;
-    private Button mRemoveCustomer;
-    private Button mRemoveQuote;
-    private Button mLogOff;
 
     public static EmployeeManageQuoteFragment newInstance() {
         EmployeeManageQuoteFragment f = new EmployeeManageQuoteFragment();
@@ -36,11 +31,11 @@ public class EmployeeManageQuoteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_employee_manage_quote, container, false);
-        mViewQuote= (Button)v.findViewById(R.id.employee_view_button);
-        mEditQuote = (Button) v.findViewById(R.id.employee_edit_button);
-        mRemoveCustomer = (Button)v.findViewById(R.id.employee_removeC_button);
-        mRemoveQuote = (Button) v.findViewById(R.id.employee_removeQ_button);
-        mLogOff = (Button) v.findViewById(R.id.employee_logoff_button);
+        Button mViewQuote = (Button) v.findViewById(R.id.employee_view_button);
+        Button mEditQuote = (Button) v.findViewById(R.id.employee_edit_button);
+        Button mRemoveCustomer = (Button) v.findViewById(R.id.employee_removeC_button);
+        Button mRemoveQuote = (Button) v.findViewById(R.id.employee_removeQ_button);
+        Button mLogOff = (Button) v.findViewById(R.id.employee_logoff_button);
 
         /**
          * Will load the View Quote Frament

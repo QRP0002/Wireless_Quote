@@ -13,7 +13,6 @@ import android.widget.EditText;
  *
  */
 public class RemoveCustomerFragment extends Fragment {
-    private Button mRemoveCustomer;
 
     public static RemoveCustomerFragment newInstance() {
         RemoveCustomerFragment f = new RemoveCustomerFragment();
@@ -33,16 +32,16 @@ public class RemoveCustomerFragment extends Fragment {
                              Bundle savedInstanceState) {
        final View view = inflater.inflate(R.layout.fragment_remove_customer, container, false);
 
-        mRemoveCustomer = (Button) view.findViewById(R.id.remove_button);
+        Button mRemoveCustomer = (Button) view.findViewById(R.id.remove_button);
         mRemoveCustomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 EditText editRemoveUser = (EditText) view.findViewById(R.id.remove_username);
                 String removeUser = editRemoveUser.getText().toString();
                 String password = "";
-               // LoginInformation li = new LoginInformation();
+                // LoginInformation li = new LoginInformation();
 
-               //li.removeCustomer(removeUser);
+                //li.removeCustomer(removeUser);
                 Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")

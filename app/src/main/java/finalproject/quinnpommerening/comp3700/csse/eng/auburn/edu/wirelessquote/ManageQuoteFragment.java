@@ -13,8 +13,6 @@ import android.widget.Button;
  *
  */
 public class ManageQuoteFragment extends Fragment {
-    private Button mViewQuote;
-    private Button mEditQuote;
 
     public static ManageQuoteFragment newInstance() {
         ManageQuoteFragment f = new ManageQuoteFragment();
@@ -34,8 +32,8 @@ public class ManageQuoteFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_manage_quote, container, false);
 
-        mViewQuote = (Button)v.findViewById(R.id.customer_view_button);
-        mEditQuote = (Button) v.findViewById(R.id.customer_edit_button);
+        Button mViewQuote = (Button) v.findViewById(R.id.customer_view_button);
+        Button mEditQuote = (Button) v.findViewById(R.id.customer_edit_button);
 
         /**
          * Will load the View Quote Fragment

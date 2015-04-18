@@ -18,7 +18,6 @@ import io.realm.Realm;
  *
  */
 public class LoginFragment extends Fragment {
-    private Button mLoginButton;
 
     public static LoginFragment newInstance() {
         LoginFragment f = new LoginFragment();
@@ -38,14 +37,14 @@ public class LoginFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
        final View view = inflater.inflate(R.layout.fragment_login, container, false);
-        mLoginButton = (Button)view.findViewById(R.id.login_button);
+        Button mLoginButton = (Button) view.findViewById(R.id.login_button);
         mLoginButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 EditText editUsername = (EditText) view.findViewById(R.id.username_login);
                 EditText editPassword = (EditText) view.findViewById(R.id.password_login);
-                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(
+                InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(
                         Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(editUsername.getWindowToken(), 0);
 

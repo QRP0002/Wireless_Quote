@@ -13,8 +13,6 @@ import android.widget.Button;
 
  */
 public class EmployeeHomeFragment extends Fragment {
-        private Button mCreateNewQuote;
-        private Button mManageQuote;
 
     public static EmployeeHomeFragment newInstance() {
         EmployeeHomeFragment f = new EmployeeHomeFragment();
@@ -33,8 +31,8 @@ public class EmployeeHomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_employee_home, container, false);
-        mCreateNewQuote = (Button)v.findViewById(R.id.create_quote_button);
-        mManageQuote = (Button) v.findViewById(R.id.manage_quote_button);
+        Button mCreateNewQuote = (Button) v.findViewById(R.id.create_quote_button);
+        Button mManageQuote = (Button) v.findViewById(R.id.manage_quote_button);
 
         mCreateNewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
