@@ -13,18 +13,24 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Realm;
+
 
 /**
  *
  */
 public class EquipmentFragment extends Fragment {
+    private String mUsername;
+    private Button mSaveButton;
+    private Button mPreviousButton;
     private Spinner mSpinnerOne;
     private Spinner mSpinnerTwo;
     private Spinner mSpinnerThree;
 
-    public static EquipmentFragment newInstance() {
+    public static EquipmentFragment newInstance(String username) {
         EquipmentFragment f = new EquipmentFragment();
         Bundle args = new Bundle();
+        args.putString("username", username);
         f.setArguments(args);
         return f;
     }
@@ -32,9 +38,7 @@ public class EquipmentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
-        }
+        mUsername = getArguments().getString("username");
     }
 
     @Override
@@ -42,8 +46,8 @@ public class EquipmentFragment extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_equipment, container, false);
 
-        Button mSaveButton = (Button) v.findViewById(R.id.save_equipment_information);
-        Button mPreviousButton = (Button) v.findViewById(R.id.previous_button_equipment);
+        mSaveButton = (Button) v.findViewById(R.id.save_equipment_information);
+        mPreviousButton = (Button) v.findViewById(R.id.previous_button_equipment);
         mSpinnerOne = (Spinner) v.findViewById(R.id.equipment_spinner_1);
         mSpinnerTwo = (Spinner) v.findViewById(R.id.equipment_spinner_2);
         mSpinnerThree = (Spinner) v.findViewById(R.id.equipment_spinner_3);
@@ -83,6 +87,26 @@ public class EquipmentFragment extends Fragment {
         mSaveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                final String spinnerOneString = mSpinnerOne.getSelectedItem().toString();
+                final String spinnerTwoString = mSpinnerTwo.getSelectedItem().toString();
+                final String spinnerThreeString = mSpinnerThree.getSelectedItem().toString();
+
+                Realm realm = Realm.getInstance(getActivity());
+                realm.executeTransaction(new Realm.Transaction() {
+                    @Override
+                    public void execute(Realm realm) {
+                        EquipmentController ec = realm.createObject(EquipmentController.class);
+                        ec.setEquipmentOne(spinnerOneString);
+                        ec.setEquipmentTwo(spinnerTwoString);
+                        ec.setEquipmentThree(spinnerThreeString);
+
+                        CustomerInformation ci = realm.where(CustomerInformation.class)
+                                .equalTo("username", mUsername)
+                                .findFirst();
+                        ci.setEc(ec);
+                    }
+                });
                 Fragment display = new EmployeeHomeFragment();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")

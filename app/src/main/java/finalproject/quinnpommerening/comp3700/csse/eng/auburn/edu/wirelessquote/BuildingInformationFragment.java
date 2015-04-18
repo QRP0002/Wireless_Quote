@@ -83,7 +83,7 @@ public class BuildingInformationFragment extends Fragment {
                     }
                 });
 
-                Fragment display = EquipmentFragment.newInstance();
+                Fragment display = EquipmentFragment.newInstance(mUsername);
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

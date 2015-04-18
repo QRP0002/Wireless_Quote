@@ -6,31 +6,31 @@ import io.realm.RealmObject;
  * Created by Quinn on 4/15/2015.
  */
 public class EquipmentController extends RealmObject {
-   private String mEquipmentOne;
-   private String mEquipmentTwo;
-   private String mEquipmentThree;
+    private String equipmentOne;
+    private String equipmentTwo;
+    private String equipmentThree;
 
-    public String getmEquipmentOne() {
-        return mEquipmentOne;
+    public String getEquipmentOne() {
+        return equipmentOne;
     }
 
-    public void setmEquipmentOne(String mEquipmentOne) {
-        this.mEquipmentOne = mEquipmentOne;
+    public void setEquipmentOne(String equipmentOne) {
+        this.equipmentOne = equipmentOne;
     }
 
-    public String getmEquipmentTwo() {
-        return mEquipmentTwo;
+    public String getEquipmentTwo() {
+        return equipmentTwo;
     }
 
-    public void setmEquipmentTwo(String mEquipmentTwo) {
-        this.mEquipmentTwo = mEquipmentTwo;
+    public void setEquipmentTwo(String equipmentTwo) {
+        this.equipmentTwo = equipmentTwo;
     }
 
-    public String getmEquipmentThree() {
-        return mEquipmentThree;
+    public String getEquipmentThree() {
+        return equipmentThree;
     }
 
-    public void setmEquipmentThree(String mEquipmentThree) {
-        this.mEquipmentThree = mEquipmentThree;
+    public void setEquipmentThree(String equipmentThree) {
+        this.equipmentThree = equipmentThree;
     }
 }
