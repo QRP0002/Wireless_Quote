@@ -37,7 +37,7 @@ public class ManageQuoteFragment extends Fragment {
 
         /**
          * Will load the View Quote Fragment
-         */
+
         mViewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +48,7 @@ public class ManageQuoteFragment extends Fragment {
                         .commit();
             }
         });
+         */
 
         /**
          * Will load the Edit Quote Fragment.
