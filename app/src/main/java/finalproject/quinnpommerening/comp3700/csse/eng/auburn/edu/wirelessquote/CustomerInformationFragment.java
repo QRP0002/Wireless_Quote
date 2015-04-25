@@ -77,7 +77,6 @@ public class CustomerInformationFragment extends Fragment {
                         ci.setMiddleI(newMiddleI);
                         ci.setCompanyName(newCompanyName);
                         ci.setCompanyAddress(newCompanyAddress);
-
                     }
                 });
 

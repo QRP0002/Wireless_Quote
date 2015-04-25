@@ -56,17 +56,16 @@ public class EquipmentFragment extends Fragment {
         List<String> spinnerTwoArray = new ArrayList();
         List<String> spinnerThreeArray = new ArrayList();
 
-        spinnerOneArray.add("One");
-        spinnerOneArray.add("Two");
-        spinnerOneArray.add("Three");
+        spinnerOneArray.add("Ruckus Wireless R300 $395.00");
+        spinnerOneArray.add("Ruckus Wireless R500 $645.00");
+        spinnerOneArray.add("Ruckus Wireless T301 $1,495.00");
 
-        spinnerTwoArray.add("One");
-        spinnerTwoArray.add("Two");
-        spinnerTwoArray.add("Three");
+        spinnerTwoArray.add("TrendNet Unmanaged Housing Switch $19.95");
+        spinnerTwoArray.add("Cisco SG 300-10P10 PoE Managed Switch $344.95");
+        spinnerTwoArray.add("Cisco SG300-28P PoE Managed Switch $733.95");
 
-        spinnerThreeArray.add("One");
-        spinnerThreeArray.add("Two");
-        spinnerThreeArray.add("Three");
+        spinnerThreeArray.add("Binary 1M CAT6 patch cables $5.95");
+        spinnerThreeArray.add("Binary 3M CAT6 patch cables $7.95");
 
         ArrayAdapter<String> adapterOne = new ArrayAdapter<>(
                 getActivity(), android.R.layout.simple_spinner_item, spinnerOneArray);

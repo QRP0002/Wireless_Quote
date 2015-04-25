@@ -16,6 +16,7 @@ import android.widget.TextView;
  */
 public class EmployeeManageQuoteFragment extends Fragment {
 
+    private EditText mUsername;
 
     public static EmployeeManageQuoteFragment newInstance() {
         EmployeeManageQuoteFragment f = new EmployeeManageQuoteFragment();
@@ -34,13 +35,12 @@ public class EmployeeManageQuoteFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_employee_manage_quote, container, false);
-        EditText userNameEntered = (EditText) v.findViewById(R.id.employee_enter_user);
+        mUsername = (EditText) v.findViewById(R.id.employee_enter_user);
         Button mEditQuote = (Button) v.findViewById(R.id.employee_edit_button);
         Button mViewQuote = (Button) v.findViewById(R.id.employee_view_button);
         Button mRemoveCustomer = (Button) v.findViewById(R.id.employee_removeC_button);
         Button mRemoveQuote = (Button) v.findViewById(R.id.employee_removeQ_button);
         Button mLogOff = (Button) v.findViewById(R.id.employee_logoff_button);
-        final String mUsername = userNameEntered.getText().toString();
 
         /**
          * Will load the Edit Quote Fragment.
@@ -62,7 +62,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mViewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = ViewQuoteFragment.newInstance(mUsername);
+                Fragment display = ViewQuoteFragment.newInstance(mUsername.getText().toString());
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

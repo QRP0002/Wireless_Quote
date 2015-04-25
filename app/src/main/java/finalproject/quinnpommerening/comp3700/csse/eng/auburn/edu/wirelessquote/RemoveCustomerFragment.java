@@ -38,10 +38,7 @@ public class RemoveCustomerFragment extends Fragment {
             public void onClick(View v) {
                 EditText editRemoveUser = (EditText) view.findViewById(R.id.remove_username);
                 String removeUser = editRemoveUser.getText().toString();
-                String password = "";
-                // LoginInformation li = new LoginInformation();
 
-                //li.removeCustomer(removeUser);
                 Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")

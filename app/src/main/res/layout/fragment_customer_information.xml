@@ -2,6 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@android:color/holo_orange_dark"
     android:orientation="vertical" >
 
     <EditText
@@ -10,28 +11,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         android:gravity="center"
+        android:singleLine="true"
         android:text="@string/new_customer_username"/>
 
     <EditText
         android:id="@+id/new_password"
         android:hint="Customer Password"
         android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
+        android:singleLine="true"
         android:text="@string/new_customer_password"/>
 
     <EditText
         android:id="@+id/new_customer_first_name"
         android:hint="Customer First Name"
         android:layout_width="wrap_content"
+        android:textColor="@android:color/black"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
+        android:singleLine="true"
         android:text="@string/new_customer_first_name"/>
 
     <EditText
@@ -39,9 +46,11 @@
         android:hint="Customer Last Name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:gravity="center"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
+        android:singleLine="true"
         android:text="@string/new_customer_last_name"/>
 
     <EditText
@@ -49,9 +58,11 @@
         android:hint="Customer Middle Initial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:gravity="center"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
+        android:singleLine="true"
         android:text="@string/new_customer_middlei"/>
 
     <EditText
@@ -60,8 +71,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textColor="@android:color/black"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
+        android:singleLine="true"
         android:text="@string/new_company_name"/>
 
     <EditText
@@ -69,15 +82,18 @@
         android:hint="Comapny Address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:gravity="center"
         android:padding="10dp"
-        android:textSize="24dp"
+        android:textSize="24sp"
+        android:singleLine="true"
         android:text="@string/new_company_address"/>
 
     <Button
         android:id="@+id/next_button_customer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
         android:text="@string/next_customer_information"
         android:onClick="next"/>
 </LinearLayout>

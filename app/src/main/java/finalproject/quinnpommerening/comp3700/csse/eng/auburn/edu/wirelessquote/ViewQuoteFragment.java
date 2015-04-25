@@ -18,7 +18,7 @@ import io.realm.Realm;
  */
 public class ViewQuoteFragment extends Fragment {
     private String mUsername;
-    public  String mDisplayString;
+    private String mDisplayString;
 
     public static ViewQuoteFragment newInstance(String username) {
         ViewQuoteFragment f = new ViewQuoteFragment();
@@ -44,6 +44,9 @@ public class ViewQuoteFragment extends Fragment {
         final String viewRooms;
         final String viewEquipmentOne;
         final String viewEquipmentTwo;
+        final String viewEquipmentThree;
+        BuildInformation bi;
+        EquipmentController ec;
 
         mUsername = getArguments().getString("username");
 
@@ -57,10 +60,31 @@ public class ViewQuoteFragment extends Fragment {
         viewMiddleI = ci.getMiddleI();
         viewCompanyName = ci.getCompanyName();
         viewCompanyAddress = ci.getCompanyAddress();
+        bi = ci.getBi();
+        ec = ci.getEc();
+        viewBuildings = bi.getBuilding();
+        viewFloors = bi.getFloors();
+        viewUnits = bi.getUnits();
+        viewRooms = bi.getRooms();
+        viewEquipmentOne = ec.getEquipmentOne();
+        viewEquipmentTwo = ec.getEquipmentTwo();
+        viewEquipmentThree = ec.getEquipmentThree();
 
-        mDisplayString = viewUsername + "\n" + viewFirstName + "\n" + viewLastName +  "\n" +
-                        "\n" +viewMiddleI + "\n" + viewCompanyName + "\n" +
-                        viewCompanyAddress;
+
+        mDisplayString = "Customer Information: " + "\n" +
+                        "Username: " + viewUsername + "\n" +
+                        "First Name: " + viewFirstName + "\n" +
+                        "Last Name: " + viewLastName +  "\n" +
+                        "Middle Initial: " + viewMiddleI + "\n" +
+                        "Company Name: " + viewCompanyName + "\n" +
+                        "Company Address: " + viewCompanyAddress  + "\n" + "\n" +
+                        "Building Information: " + "\n" +
+                        "Number of Buildings: " + viewBuildings + "\n" +
+                        "Number of Floors: " + viewFloors + "\n" +
+                        "Number of Units: " + viewUnits  + "\n" +
+                        "Number of Rooms: " + viewRooms + "\n" + "\n" +
+                        "Equipment: " + "\n" +
+                        viewEquipmentOne  + "\n" + viewEquipmentTwo  + "\n" + viewEquipmentThree;
     }
 
     @Override
@@ -69,7 +93,7 @@ public class ViewQuoteFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_view_quote, container, false);
 
         TextView showText = (TextView) v.findViewById(R.id.view_text);
-        showText.setText(getArguments().getString(mDisplayString));
+        showText.setText(mDisplayString);
         return v;
     }
 }
