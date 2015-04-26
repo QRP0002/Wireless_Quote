@@ -47,6 +47,11 @@ public class ViewQuoteFragment extends Fragment {
         final String viewEquipmentThree;
         BuildInformation bi;
         EquipmentController ec;
+        final double equip1;
+        final double equip2;
+        final double equip3;
+        final String total;
+        TotalCost totalCost = new TotalCost();
 
         mUsername = getArguments().getString("username");
 
@@ -69,7 +74,10 @@ public class ViewQuoteFragment extends Fragment {
         viewEquipmentOne = ec.getEquipmentOne();
         viewEquipmentTwo = ec.getEquipmentTwo();
         viewEquipmentThree = ec.getEquipmentThree();
-
+        equip1 = totalCost.equipmentOneCost(viewEquipmentOne);
+        equip2 = totalCost.equipmentTwoCost(viewEquipmentTwo);
+        equip3 = totalCost.equipmentThreeCost(viewEquipmentThree);
+        total = totalCost.calculateTotal(equip1, equip2, equip3);
 
         mDisplayString = "Customer Information: " + "\n" +
                         "Username: " + viewUsername + "\n" +
@@ -84,7 +92,8 @@ public class ViewQuoteFragment extends Fragment {
                         "Number of Units: " + viewUnits  + "\n" +
                         "Number of Rooms: " + viewRooms + "\n" + "\n" +
                         "Equipment: " + "\n" +
-                        viewEquipmentOne  + "\n" + viewEquipmentTwo  + "\n" + viewEquipmentThree;
+                        viewEquipmentOne  + "\n" + viewEquipmentTwo  + "\n" + viewEquipmentThree +
+                        "\n\n" + "Total Cost: " + "\n" + total;
     }
 
     @Override
