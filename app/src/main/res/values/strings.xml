@@ -41,8 +41,9 @@
     <string name="equipment_text">Pick the Appropriate Equipment</string>
 
     <!--Employee Manage Quote -->
-    <string name="employee_view_button">Edit Quote</string>
-    <string name="employee_edit_button">View Quote</string>
+    <string name="employee_enter_username"></string>
+    <string name="employee_view_button">View Quote</string>
+    <string name="employee_edit_button">Edit Quote</string>
     <string name="employee_removeC_button">Remove Customer</string>
     <string name="employee_removeQ_button">Remove Quote</string>
     <string name="employee_logoff_button">Log Off</string>
@@ -54,5 +55,16 @@
     <!--Remove Customer-->
     <string name="remove_username"></string>
     <string name="remove_button">Remove Customer</string>
+
+    <!--View Quote-->
+    <string name="view_email_button">Email Quote</string>
+
+    <!--Edit Quote-->
+    <string name="edit_email_button">Email Quote</string>
+    <string name="edit_submit_button">Submit Changes</string>
+
+    <!--Remove Quote-->
+    <string name="remove_quote_username"></string>
+    <string name="remove_quote_button">Remove Quote</string>
 
 </resources>

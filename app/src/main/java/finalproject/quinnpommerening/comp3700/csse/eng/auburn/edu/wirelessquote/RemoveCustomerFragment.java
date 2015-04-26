@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import io.realm.Realm;
+
 
 /**
  *
@@ -38,6 +40,13 @@ public class RemoveCustomerFragment extends Fragment {
             public void onClick(View v) {
                 EditText editRemoveUser = (EditText) view.findViewById(R.id.remove_username);
                 String removeUser = editRemoveUser.getText().toString();
+
+                Realm realm = Realm.getInstance(getActivity());
+                realm.beginTransaction();
+                CustomerInformation ci = realm.where(CustomerInformation.class)
+                        .equalTo("username", removeUser).findFirst();
+                ci.removeFromRealm();
+                realm.commitTransaction();
 
                 Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()

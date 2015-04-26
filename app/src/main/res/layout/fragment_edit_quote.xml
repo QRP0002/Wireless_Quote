@@ -3,6 +3,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -10,16 +14,62 @@
         android:layout_gravity="top"
         android:layout_weight="10">
 
-        <TextView
-            android:layout_width="fill_parent"
-            android:text="This is a test"
-            android:layout_height="fill_parent"
-            android:id="@+id/edit_text" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text1"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text2"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text3"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text4"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text5"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text6"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text7"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text8"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text9"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:singleLine="true"
+            android:id="@+id/edit_text10"/>
     </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="bottom"
         android:layout_weight="1">
@@ -29,6 +79,14 @@
             android:layout_height="wrap_content"
             android:text="@string/edit_email_button"
             android:id="@+id/edit_email_quote"
-            android:layout_gravity="bottom|center" />
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_submit_button"
+            android:id="@+id/edit_submit_quote" />
     </LinearLayout>
+
 </LinearLayout>

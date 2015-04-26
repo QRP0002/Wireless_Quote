@@ -48,7 +48,7 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mEditQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = EditQuoteFragment.newInstance();
+                Fragment display = EditQuoteFragment.newInstance(mUsername.getText().toString());
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
