@@ -251,7 +251,7 @@ public class EditQuoteFragment extends Fragment {
                     }
                 });
 
-                Fragment display = EmployeeManageQuoteFragment.newInstance();
+                Fragment display = SendEmailFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
