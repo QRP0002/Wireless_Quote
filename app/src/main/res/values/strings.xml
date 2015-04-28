@@ -51,6 +51,8 @@
     <!--Customer Manage Quote -->
     <string name="customer_view_button">Edit Quote</string>
     <string name="customer_edit_button">View Quote</string>
+    <string name="customer_enter_username"></string>
+    <string name="customer_logoff_button">Log Off</string>
 
     <!--Remove Customer-->
     <string name="remove_username"></string>
@@ -66,5 +68,11 @@
     <!--Remove Quote-->
     <string name="remove_quote_username"></string>
     <string name="remove_quote_button">Remove Quote</string>
+
+    <!--Email Quote-->
+    <string name="email_address"></string>
+    <string name="send_button">Send Quote</string>
+    <string name="title_activity_splash">Splash</string>
+
 
 </resources>

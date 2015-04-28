@@ -34,7 +34,7 @@ public class ManageQuoteFragment extends Fragment {
 
         Button mViewQuote = (Button) v.findViewById(R.id.customer_view_button);
         Button mEditQuote = (Button) v.findViewById(R.id.customer_edit_button);
-
+        Button mLogOff = (Button) v.findViewById(R.id.customer_logoff_button);
         /**
          * Will load the View Quote Fragment
 
@@ -64,6 +64,17 @@ public class ManageQuoteFragment extends Fragment {
             }
         });
          */
+
+        mLogOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment display = LoginFragment.newInstance();
+                getFragmentManager().beginTransaction()
+                        .addToBackStack("fragment")
+                        .replace(R.id.fragment_container, display, "display")
+                        .commit();
+            }
+        });
         return v;
     }
 }
