@@ -47,6 +47,7 @@
     <string name="employee_removeC_button">Remove Customer</string>
     <string name="employee_removeQ_button">Remove Quote</string>
     <string name="employee_logoff_button">Log Off</string>
+    <string name="log_off">Good Bye!</string>
 
     <!--Customer Manage Quote -->
     <string name="customer_view_button">View Quote</string>

@@ -28,7 +28,7 @@ public class SendEmailFragment extends Fragment {
     private Button mSendButton;
     protected String mBody;
     private String mUsername;
-    protected EditText mSubject;
+    protected String mSubject = "Infinity Solutions: Your Wireless Quote";
 
     public static SendEmailFragment newInstance(String username) {
         SendEmailFragment f = new SendEmailFragment();
@@ -113,7 +113,6 @@ public class SendEmailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_send_email, container, false);
 
         mRecipient = (EditText) view.findViewById(R.id.email_address);
-        mSubject = (EditText) view.findViewById(R.id.email_subject);
         mSendButton = (Button) view.findViewById(R.id.send_button);
 
         mSendButton.setOnClickListener(new View.OnClickListener() {
@@ -143,7 +142,7 @@ public class SendEmailFragment extends Fragment {
         email.setType("message/rfc822");
 
         email.putExtra(Intent.EXTRA_EMAIL, recipients);
-        email.putExtra(Intent.EXTRA_SUBJECT, mSubject.getText().toString());
+        email.putExtra(Intent.EXTRA_SUBJECT, mSubject);
         email.putExtra(Intent.EXTRA_TEXT, mBody);
 
         try {

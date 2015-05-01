@@ -118,6 +118,9 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mLogOff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getActivity(),
+                        R.string.log_off,
+                        Toast.LENGTH_SHORT).show();
                 Fragment display = LoginFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
