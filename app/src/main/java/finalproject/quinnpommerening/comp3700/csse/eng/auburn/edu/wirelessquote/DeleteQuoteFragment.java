@@ -43,6 +43,13 @@ public class DeleteQuoteFragment extends Fragment {
                 EditText editRemoveUser = (EditText) view.findViewById(R.id.remove_quote_username);
                 String removeUser = editRemoveUser.getText().toString();
 
+                if (removeUser.length() == 0) {
+                    Toast.makeText(getActivity(),
+                            R.string.not_found,
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Realm realm = Realm.getInstance(getActivity());
                 realm.beginTransaction();
                 CustomerInformation ci = realm.where(CustomerInformation.class)

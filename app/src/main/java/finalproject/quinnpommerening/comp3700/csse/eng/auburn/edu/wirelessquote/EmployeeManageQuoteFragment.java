@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -48,6 +49,14 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mEditQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (mUsername.getText().toString().length() == 0) {
+                    Toast.makeText(getActivity(),
+                            R.string.not_found,
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Fragment display = EditQuoteFragment.newInstance(mUsername.getText().toString());
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
@@ -62,6 +71,14 @@ public class EmployeeManageQuoteFragment extends Fragment {
         mViewQuote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (mUsername.getText().toString().length() == 0) {
+                    Toast.makeText(getActivity(),
+                            R.string.not_found,
+                            Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Fragment display = ViewQuoteFragment.newInstance(mUsername.getText().toString());
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")

@@ -70,6 +70,7 @@
     <string name="remove_quote_username"></string>
     <string name="remove_quote_button">Remove Quote</string>
     <string name="cust_q">Quote Removed</string>
+    <string name="not_found">User not found, try again</string>
 
     <!--Email Quote-->
     <string name="email_address"></string>
