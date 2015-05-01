@@ -41,6 +41,7 @@ public class LoginFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
+
                 EditText editUsername = (EditText) view.findViewById(R.id.username_login);
                 EditText editPassword = (EditText) view.findViewById(R.id.password_login);
                 InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(

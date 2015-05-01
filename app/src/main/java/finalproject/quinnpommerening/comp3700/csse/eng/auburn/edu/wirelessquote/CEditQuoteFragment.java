@@ -1,8 +1,13 @@
 package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote;
 
-
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +27,7 @@ import io.realm.Realm;
 /**
  *
  */
-public class EditQuoteFragment extends Fragment {
+public class CEditQuoteFragment extends Fragment {
     private String mUsername;
     private Button mSubmitButton;
     private Button mEmailButton;
@@ -84,9 +89,9 @@ public class EditQuoteFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-       final View view = inflater.inflate(R.layout.fragment_edit_quote, container, false);
+        final View view = inflater.inflate(R.layout.fragment_cedit_quote, container, false);
 
-        mSubmitButton = (Button) view.findViewById(R.id.edit_submit_quote);
+        mSubmitButton = (Button) view.findViewById(R.id.customer_submit_quote);
         mEmailButton = (Button) view.findViewById(R.id.edit_email_quote);
 
         final EditText editPass = (EditText) view.findViewById(R.id.edit_text1);
@@ -206,7 +211,7 @@ public class EditQuoteFragment extends Fragment {
                 if (getActivity() instanceof MainActivity) {
                     ((MainActivity)getActivity()).sendNotification(view);
                 }
-                Fragment display = EmployeeManageQuoteFragment.newInstance();
+                Fragment display = ManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
@@ -267,5 +272,4 @@ public class EditQuoteFragment extends Fragment {
 
         return view;
     }
-
 }

@@ -1,20 +1,18 @@
 package finalproject.quinnpommerening.comp3700.csse.eng.auburn.edu.wirelessquote;
 
-
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import io.realm.Realm;
 
@@ -22,16 +20,13 @@ import io.realm.Realm;
 /**
  *
  */
-public class SendEmailFragment extends Fragment {
-
-    protected EditText mRecipient;
-    private Button mSendButton;
-    protected String mBody;
+public class CViewQuoteFragment extends Fragment {
     private String mUsername;
-    protected EditText mSubject;
+    private String mDisplayString;
+    private Button mEmailButton;
 
-    public static SendEmailFragment newInstance(String username) {
-        SendEmailFragment f = new SendEmailFragment();
+    public static ViewQuoteFragment newInstance(String username) {
+        ViewQuoteFragment f = new ViewQuoteFragment();
         Bundle args = new Bundle();
         args.putString("username", username);
         f.setArguments(args);
@@ -89,7 +84,7 @@ public class SendEmailFragment extends Fragment {
         equip3 = totalCost.equipmentThreeCost(viewEquipmentThree);
         total = totalCost.calculateTotal(equip1, equip2, equip3);
 
-        mBody = "Customer Information: " + "\n" +
+        mDisplayString = "Customer Information: " + "\n" +
                 "Username: " + viewUsername + "\n" +
                 "First Name: " + viewFirstName + "\n" +
                 "Last Name: " + viewLastName +  "\n" +
@@ -104,56 +99,28 @@ public class SendEmailFragment extends Fragment {
                 "Equipment: " + "\n" +
                 viewEquipmentOne  + "\n" + viewEquipmentTwo  + "\n" + viewEquipmentThree +
                 "\n\n" + "Total Cost: " + "\n" + total;
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_send_email, container, false);
+        View v = inflater.inflate(R.layout.fragment_cview_quote, container, false);
+        mEmailButton = (Button) v.findViewById(R.id.view_email_quote);
 
-        mRecipient = (EditText) view.findViewById(R.id.email_address);
-        mSubject = (EditText) view.findViewById(R.id.email_subject);
-        mSendButton = (Button) view.findViewById(R.id.send_button);
 
-        mSendButton.setOnClickListener(new View.OnClickListener() {
+        TextView showText = (TextView) v.findViewById(R.id.view_text);
+        showText.setText(mDisplayString);
+
+        mEmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendEmail();
-
-                Toast.makeText(getActivity(),
-                        R.string.email_sent,
-                        Toast.LENGTH_SHORT).show();
-
-                Fragment display = EmployeeManageQuoteFragment.newInstance();
+                Fragment display = SendEmailFragment.newInstance(mUsername);
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")
                         .commit();
             }
         });
-        return view;
+        return v;
     }
-
-    protected void sendEmail() {
-
-        String[] recipients = {mRecipient.getText().toString()};
-        Intent email = new Intent(Intent.ACTION_SEND, Uri.parse("mailto:"));
-        // prompts email clients only
-        email.setType("message/rfc822");
-
-        email.putExtra(Intent.EXTRA_EMAIL, recipients);
-        email.putExtra(Intent.EXTRA_SUBJECT, mSubject.getText().toString());
-        email.putExtra(Intent.EXTRA_TEXT, mBody);
-
-        try {
-            // the user can choose the email client
-            startActivity(Intent.createChooser(email, "Choose an email client from..."));
-
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(getActivity(), "No email client installed.",
-                    Toast.LENGTH_LONG).show();
-        }
-    }
-
 }

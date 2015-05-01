@@ -7,6 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import android.net.Uri;
+import android.content.Intent;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import io.realm.Realm;
 
@@ -47,6 +54,10 @@ public class RemoveCustomerFragment extends Fragment {
                         .equalTo("username", removeUser).findFirst();
                 ci.removeFromRealm();
                 realm.commitTransaction();
+
+                Toast.makeText(getActivity(),
+                        R.string.cust_r,
+                        Toast.LENGTH_SHORT).show();
 
                 Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()

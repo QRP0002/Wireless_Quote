@@ -109,7 +109,7 @@ public class ViewQuoteFragment extends Fragment {
         mEmailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment display = SendEmailFragment.newInstance();
+                Fragment display = SendEmailFragment.newInstance(mUsername);
                 getFragmentManager().beginTransaction()
                         .addToBackStack("fragment")
                         .replace(R.id.fragment_container, display, "display")

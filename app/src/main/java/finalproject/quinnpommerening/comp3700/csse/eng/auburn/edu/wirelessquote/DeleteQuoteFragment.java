@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import io.realm.Realm;
 
@@ -64,6 +65,10 @@ public class DeleteQuoteFragment extends Fragment {
                 ec.setEquipmentTwo("");
                 ec.setEquipmentThree("");
                 realm.commitTransaction();
+
+                Toast.makeText(getActivity(),
+                        R.string.cust_q,
+                        Toast.LENGTH_SHORT).show();
 
                 Fragment display = EmployeeManageQuoteFragment.newInstance();
                 getFragmentManager().beginTransaction()

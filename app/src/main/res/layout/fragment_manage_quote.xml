@@ -9,7 +9,7 @@
         android:layout_weight="1">
 
         <EditText
-            android:id="@+id/employee_enter_user"
+            android:id="@+id/customer_enter_user"
             android:hint="Enter Username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

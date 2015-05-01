@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/email_address"
-        android:hint="Enter Email"
+        android:hint="Enter Email Address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -14,6 +14,17 @@
         android:singleLine="true"
         android:textSize="24sp"
         android:text="@string/email_address"/>
+
+    <EditText
+        android:id="@+id/email_subject"
+        android:hint="Enter Email Subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textSize="24sp"
+        android:text="@string/email_subject"/>
 
     <Button
         android:id="@+id/send_button"

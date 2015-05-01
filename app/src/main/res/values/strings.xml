@@ -49,14 +49,15 @@
     <string name="employee_logoff_button">Log Off</string>
 
     <!--Customer Manage Quote -->
-    <string name="customer_view_button">Edit Quote</string>
-    <string name="customer_edit_button">View Quote</string>
+    <string name="customer_view_button">View Quote</string>
+    <string name="customer_edit_button">Edit Quote</string>
     <string name="customer_enter_username"></string>
     <string name="customer_logoff_button">Log Off</string>
 
     <!--Remove Customer-->
     <string name="remove_username"></string>
     <string name="remove_button">Remove Customer</string>
+    <string name="cust_r">Customer Removed</string>
 
     <!--View Quote-->
     <string name="view_email_button">Email Quote</string>
@@ -68,11 +69,14 @@
     <!--Remove Quote-->
     <string name="remove_quote_username"></string>
     <string name="remove_quote_button">Remove Quote</string>
+    <string name="cust_q">Quote Removed</string>
 
     <!--Email Quote-->
     <string name="email_address"></string>
     <string name="send_button">Send Quote</string>
     <string name="title_activity_splash">Splash</string>
-
+    <string name="info_saved">Information Updated</string>
+    <string name="email_subject"></string>
+    <string name="email_sent">Your Email Was Sent</string>
 
 </resources>
